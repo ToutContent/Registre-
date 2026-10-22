@@ -1,0 +1,817 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mécanismes correctifs</title>
+<meta name="description" content="Mécanismes correctifs proposés à partir du registre : une réponse par problème démontré, avec sa faisabilité et ses liens avec les autres.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#f1f3f7;--paper:#fff;--ink:#1a2031;--muted:#5a6377;--line:#d6dbe5;--accent:#29498f;--soft:#eef2f9}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12151d;--paper:#1a1f2a;--ink:#e6e9f0;--muted:#9aa3b5;--line:#2c3342;--accent:#8fa9e6;--soft:#20283a}}
+:root[data-theme="dark"]{--bg:#12151d;--paper:#1a1f2a;--ink:#e6e9f0;--muted:#9aa3b5;--line:#2c3342;--accent:#8fa9e6;--soft:#20283a}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 "IBM Plex Sans",system-ui,sans-serif}
+nav.top{max-width:1000px;margin:0 auto;padding:16px 16px 0;font-size:14px;display:flex;gap:18px;flex-wrap:wrap}
+main{max-width:1000px;margin:12px auto 40px;padding:26px 16px;background:var(--paper);border:1px solid var(--line);border-radius:10px}
+@media(min-width:760px){main{padding:40px 52px}}
+h1,h2,h3{font-family:Archivo,"Arial Narrow",sans-serif;line-height:1.2}
+h1{font-size:clamp(26px,5vw,38px);margin:0 0 6px}
+h2{font-size:clamp(20px,3.4vw,24px);margin:2.2em 0 .6em;padding-top:.7em;border-top:1px solid var(--line);scroll-margin-top:12px}
+p,li{overflow-wrap:anywhere}
+a{color:var(--accent)}
+li{margin:.35em 0}
+.date{color:var(--muted);font-size:14px;margin:0 0 4px}
+blockquote{margin:1em 0;padding:12px 16px;border-left:4px solid var(--accent);background:var(--soft);border-radius:0 8px 8px 0}
+blockquote p{margin:.3em 0}
+.toc{background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:14px 18px;margin:18px 0 8px}
+.toc .toch{font-family:Archivo,sans-serif;font-weight:700;margin:0 0 6px}
+.toc ol{margin:0;padding-left:22px;columns:2;column-gap:32px}
+.toc li{margin:0 0 6px;break-inside:avoid}
+.toc a{text-decoration:none}
+.tw{overflow-x:auto;margin:1em 0}
+table{border-collapse:collapse;width:100%;font-size:14.5px}
+th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:var(--soft)}
+@media (max-width:700px){
+ .toc ol{columns:1}
+ table,thead,tbody,tr,td{display:block;width:100%}
+ thead{display:none}
+ table{font-size:15px}
+ tr{border:1px solid var(--line);border-radius:8px;padding:8px 12px;margin:0 0 10px;background:var(--paper)}
+ td{border:0;padding:3px 0}
+ td::before{content:attr(data-label);display:block;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+ td:first-child{font-weight:600}
+ td:first-child::before{display:none}
+}
+</style>
+</head>
+<body>
+<nav class="top"><a href="index.html">← Registre</a><a href="analyse.html">Conclusion d'analyse</a></nav>
+<main>
+<h1>Mécanismes correctifs</h1>
+<p class="date">Mise à jour : 22 octobre 2026</p>
+<nav class="toc" aria-label="Sommaire"><p class="toch">Sommaire</p><ol><li><a href="#sec-1">Un travail non partisan, au service de l'intérêt du pays</a></li><li><a href="#sec-2">Fiche 1 — La loyauté des gouvernants</a></li><li><a href="#sec-3">Fiche 2 — Le délit d'initié politique</a></li><li><a href="#sec-4">Fiche 3 — Le lobbying</a></li><li><a href="#sec-5">Fiche 4 — Les baisses d'impôts sans contrepartie</a></li><li><a href="#sec-6">Fiche 5 — Les caisses communes</a></li><li><a href="#sec-7">Fiche 6 — La trappe à bas salaires</a></li><li><a href="#sec-8">Fiche 7 — Les indicateurs choisis par le pouvoir</a></li><li><a href="#sec-9">Fiche 8 — Les institutions de contrôle</a></li><li><a href="#sec-10">Fiche 9 — Le pouvoir des acheteurs dans l'alimentation</a></li><li><a href="#sec-11">Fiche 10 — Les outre-mer</a></li><li><a href="#sec-12">Fiche 11 — Les forêts</a></li><li><a href="#sec-13">Fiche 12 — La rente de crise</a></li><li><a href="#sec-14">Fiche 13 — Les productions stratégiques</a></li><li><a href="#sec-15">Fiche 14 — Les crises à venir : des réserves prêtes avant le choc</a></li><li><a href="#sec-16">Pourquoi les fiches forment un tout</a></li><li><a href="#sec-17">Ce qui peut être fait, et comment</a></li><li><a href="#sec-18">Vérification : les mécanismes suffisent-ils ?</a></li><li><a href="#sec-19">Modélisation de la trappe à bas salaires</a></li><li><a href="#sec-20">Chiffrage des autres fiches</a></li><li><a href="#sec-21">Compléments nécessaires</a></li><li><a href="#sec-22">Ce que ces fiches ne règlent pas encore</a></li></ol></nav>
+
+<p>Le registre établit les faits et la conclusion les analyse. Ce document propose des réponses : pour chaque problème démontré, un mécanisme qui s'attaque à sa cause, et non à ses symptômes.</p>
+<p>Chaque fiche suit le même ordre : le problème tel qu'il apparaît dans le registre, le mécanisme proposé, puis pourquoi il fonctionne, en s'appuyant sur ce qui existe déjà en France ou à l'étranger. Aucune de ces réponses ne vise une personne. Elles visent des règles, pour qu'elles s'appliquent à tout gouvernement, quel que soit son camp.</p>
+<p>Chaque fiche renvoie aux données du registre qui documentent le problème : les numéros cités sont ceux des lignes du <a href="index.html">registre Macron</a>, où chaque fait est daté et sourcé.</p>
+<blockquote>
+<p><strong>Les solutions existent. C'est la possibilité de les appliquer qui manque.</strong> Pour chaque fiche, ce document indique ce qui est faisable aujourd'hui et ce qui ne l'est pas encore, et pourquoi. Certaines mesures demandent une simple loi : elles ne dépendent que d'une majorité prête à la voter, alors que des amendements similaires ont souvent été rejetés. D'autres exigent une loi organique ou une révision de la Constitution. D'autres enfin touchent à des secteurs entiers et ne peuvent pas être réglées par une mesure isolée : elles sont présentées en fin de document, avec les raisons qui les rendent difficiles à régler pour l'instant.</p>
+</blockquote>
+<h2 id="sec-1">Un travail non partisan, au service de l'intérêt du pays</h2>
+<p><strong>Pourquoi ces mécanismes ne sont pas partisans.</strong></p>
+<ul>
+<li><strong>Ils visent des règles, pas des personnes ni des camps.</strong> Chaque fiche s'applique à tout gouvernement, quel qu'il soit, y compris à celui qui la voterait.</li>
+<li><strong>Ils partent de défaillances constatées sous plusieurs majorités.</strong> Le registre applique la même grille à Sarkozy, Hollande et Macron, et les mêmes mécanismes se retrouvent chez chacun : baisses d'impôts non financées, charges reportées sur les caisses communes, pouvoirs d'exception prolongés.</li>
+<li><strong>Ils empruntent à toutes les traditions.</strong> La discipline budgétaire de la fiche 4 et la transparence du lobbying de la fiche 3 sont défendues à droite comme à gauche ; la rente de crise de la fiche 12 reprend un dispositif européen ; la fiche 6 garde les allègements au Smic pour protéger l'emploi peu qualifié.</li>
+<li><strong>Ils sont mesurables.</strong> Chaque fiche fixe à l'avance ses critères, ses seuils et son contrôle, pour que son application ne dépende pas de qui gouverne.</li>
+<li><strong>Aucun ne favorise un électorat ou un secteur.</strong> Aucune fiche ne crée d'avantage ciblé sans contrepartie vérifiable.</li>
+</ul>
+<p><strong>Pourquoi ils servent l'intérêt du pays, et non des intérêts privés ou étrangers.</strong></p>
+<ul>
+<li>Chaque fiche part de la même question : qui paie, qui reçoit, et l'intérêt général y gagne-t-il ? Quand une règle profite à quelques acteurs aux dépens des contribuables, des producteurs ou des caisses communes, elle est corrigée.</li>
+<li>Plusieurs fiches ferment les portes par lesquelles des intérêts particuliers orientent la décision publique : le délit d'initié politique (fiche 2), l'empreinte du lobbying (fiche 3), la loyauté des gouvernants (fiche 1) et l'indépendance des nominations (fiche 8).</li>
+<li>D'autres protègent ce dont le pays ne peut pas se passer : l'alimentation (fiche 9), les productions stratégiques (fiche 13) et les réserves de crise (fiche 14). Une dépendance découverte en pleine crise se paie toujours plus cher.</li>
+<li>Ce document n'a été ni commandé ni financé par une entreprise, un parti, un groupe d'intérêt ou un État. Ses sources sont publiques et citées, pour que chacun puisse vérifier.</li>
+</ul>
+<p><strong>La coopération européenne : oui, sans abus.</strong> L'Union européenne est un cadre de coopération utile, et plusieurs fiches s'appuient sur elle : le stockage de gaz imposé depuis 2022, la directive de 2019 sur les pratiques commerciales déloyales, la contribution de solidarité sur les profits de l'énergie. Les mécanismes sont conçus pour respecter le droit européen : ils reposent sur des critères objectifs (activité, résidence, part de marché, taille), jamais sur la nationalité, et restent proportionnés à leur objectif.</p>
+<p>Mais la coopération ne doit ni servir à contourner des règles nationales légitimes, ni imposer à la France des coûts disproportionnés. Le registre en donne deux exemples : des centrales d'achat installées dans d'autres pays de l'Union négocient hors de portée du droit français (fiche 9), et l'accord avec le Mercosur a été signé malgré le vote contre de la France. Dans ces cas, la réponse n'est pas de rompre avec l'Union, mais d'utiliser les protections que les traités prévoient déjà (ordre public, sécurité d'approvisionnement, santé publique) et de porter au niveau européen les révisions nécessaires, comme l'extension de la directive de 2019 aux centrales européennes.</p>
+<h2 id="sec-2">Fiche 1 — La loyauté des gouvernants</h2>
+<p><strong>Le problème.</strong> Le registre montre des décisions prises malgré les alertes : sur les forêts, la Cour des comptes jugeait dès 2015 les niches incohérentes, des rapports ont critiqué le plan de reboisement, et les amendements correctifs ont été rejetés. Aujourd'hui, aucune règle ne sanctionne un gouvernant qui ignore sciemment l'information dont il dispose.</p>
+<p><strong>Dans le registre.</strong> Lignes 91 à 99 (forêts : alertes ignorées, avantages prolongés, amendements correctifs rejetés) et 103 (le Conseil d'État enjoint deux fois à l'État d'agir pour le climat) ; section « Médias et fausses informations » (stock de masques non renouvelé malgré la pénurie connue).</p>
+<p><strong>Le mécanisme.</strong> Les gouvernants ont une obligation de loyauté et de moyens. On ne les juge pas sur les résultats, mais sur leur façon de décider, à partir de quatre questions vérifiables :</p>
+<ol>
+<li>Avaient-ils l'information, études et alertes comprises ?</li>
+<li>L'ont-ils ignorée ?</li>
+<li>Avaient-ils un intérêt personnel dans la décision ?</li>
+<li>Ont-ils corrigé quand les preuves sont arrivées ?</li>
+</ol>
+<p>En cas de doute sérieux, une enquête établit qui savait quoi et quand. La sanction dépend de trois critères fixés à l'avance : l'intention (négligence ou choix conscient), l'ampleur chiffrée du dommage et la récidive après alerte.</p>
+<ul>
+<li>Négligence ponctuelle, dommage limité : inéligibilité.</li>
+<li>Choix conscient au profit d'un intérêt particulier, établi par les quatre questions, ou négligence répétée au dommage lourd : destitution, confirmée par une instance élue.</li>
+<li>Tête de l'exécutif en cause : référendum révocatoire, pour que le peuple tranche.</li>
+</ul>
+<p>L'erreur de bonne foi est explicitement protégée. Les enquêteurs et les juges sont eux-mêmes audités par des citoyens tirés au sort, avec des mandats courts et non renouvelables.</p>
+<p><strong>Pourquoi ça marche.</strong> Ce devoir existe déjà pour les dirigeants d'entreprise : on ne les condamne pas pour une perte, mais pour avoir décidé sans s'informer, en conflit d'intérêts ou en ignorant les alertes. Juger le processus plutôt que les résultats évite deux pièges : l'optimisation court-termiste d'indicateurs chiffrés, et le juge qui gouvernerait à la place des élus. Pour la tête de l'exécutif, la sanction la plus lourde reste entre les mains des électeurs.</p>
+<p><strong>Faisabilité.</strong> En partie, dès aujourd'hui. L'obligation de loyauté et l'enquête peuvent être créées par la loi, et l'inéligibilité des parlementaires par une loi organique. La destitution et le référendum révocatoire demanderont une révision de la Constitution. La responsabilité pénale des ministres relève de la Cour de justice de la République, et l'audit citoyen des juges devra respecter leur indépendance, garantie par l'article 64 de la Constitution.</p>
+<p><strong>Liens avec les autres fiches.</strong> Pour juger la façon de décider, il faut des preuves : qui a rencontré qui et sur quel texte (fiche 3, lobbying), quelles informations étaient disponibles (fiche 7, indicateurs), et si le décideur avait un intérêt personnel (fiche 2, délit d'initié). Il faut aussi des enquêteurs qui ne doivent pas leur poste à ceux qu'ils contrôlent (fiche 8). Sans ces trois appuis, l'intention reste impossible à établir et la fiche ne s'applique jamais. En retour, elle sanctionne le gouvernant qui laisse contourner les autres fiches, par exemple en laissant fondre une réserve de crise malgré les alertes (fiche 14).</p>
+<h2 id="sec-3">Fiche 2 — Le délit d'initié politique</h2>
+<p><strong>Le problème.</strong> Un décideur peut préparer un projet public, puis rejoindre ou prendre des parts dans l'entreprise qui en profitera. Le délai de trois ans du droit actuel ne couvre pas un projet qui démarre dix ans plus tard, et la HATVP ne peut souvent émettre que des réserves.</p>
+<p><strong>Dans le registre.</strong> Lignes 12 (affaire Kohler et MSC), 93 (un ancien ministre de l'Agriculture rejoint une entreprise de comptabilité carbone) et 94 (un ancien ministre de l'Agriculture et de la Forêt déclare un groupement forestier).</p>
+<p><strong>Le mécanisme.</strong> Est sanctionné tout décideur qui se place à l'avance, par un poste, des parts, directement ou par une société écran ou un prête-nom, dans une entreprise qui va profiter d'un projet qu'il a lancé ou préparé, avant que ce projet soit public ou lancé. L'interdiction couvre la durée de vie du projet, de la décision jusqu'à la fin de ses effets, dans la limite de dix ans après la fin des fonctions, pour rester proportionnée.</p>
+<ul>
+<li>Chaque décision importante est inscrite dans un registre public, avec les secteurs et les entreprises susceptibles d'en profiter.</li>
+<li>Pendant la même période, l'ancien décideur ne peut pas démarcher son ancienne administration ; toute rencontre est déclarée publiquement.</li>
+<li>Si un lien apparaît plus tard, la sanction s'applique dès sa découverte : la prescription ne commence à courir qu'à ce moment-là. Les peines sont pénales : amende proportionnée au gain, confiscation du profit et inéligibilité.</li>
+<li>On regarde l'activité réelle, pas seulement le contrat, pour couvrir les statuts de consultant.</li>
+</ul>
+<p><strong>Pourquoi ça marche.</strong> Le principe existe déjà en Bourse : chacun peut acheter des actions, mais pas grâce à une information privilégiée. On l'étend simplement à la décision publique. L'investisseur ordinaire n'est pas concerné, seulement les quelques milliers de personnes, ministres, membres de cabinet et hauts fonctionnaires, qui ont l'information avant tout le monde. Investir une fois le projet public, comme n'importe qui, reste permis. Ce n'est donc pas un frein à l'investissement : c'est ce qui garantit que l'argent public est investi pour l'intérêt général, et non pour ceux qui l'ont orienté.</p>
+<p><strong>Faisabilité.</strong> Faisable par une loi ordinaire pour les ministres et les hauts fonctionnaires. Pour les parlementaires, une loi organique est nécessaire.</p>
+<p><strong>Liens avec les autres fiches.</strong> Le registre public des décisions et des rencontres vient de la fiche 3 : sans lui, impossible de prouver qu'un décideur a préparé le projet dont il profite. Le contrôle doit être confié à une autorité indépendante (fiche 8). La fiche 1 prend le relais pendant les fonctions, la fiche 2 après.</p>
+<h2 id="sec-4">Fiche 3 — Le lobbying</h2>
+<p><strong>Le problème.</strong> Le répertoire de la HATVP dit qui fait du lobbying, mais par grands thèmes et une fois par an. Impossible de savoir qui a pesé sur quelle décision, alors que la Commission européenne, dans son rapport 2023 sur l'État de droit, invite la France à appliquer ces règles y compris au plus haut niveau de l'exécutif.</p>
+<p><strong>Dans le registre.</strong> Lignes 2 (Uber Files), 22 (dépenses de conseil de l'État), 23 (McKinsey, volet fiscal) et 98 (bonus fiscaux pour la gestion sans coupe rase, rejetés).</p>
+<p><strong>Le mécanisme.</strong></p>
+<ol>
+<li><strong>Une empreinte pour chaque décision.</strong> Chaque loi, amendement et décret publie les rencontres et contributions reçues : qui, pour quel client réel, avec quel décideur, quand, sur quel texte, avec quelle demande. Les documents transmis sont publiés, et tout passage repris mot pour mot dans le texte final est signalé.</li>
+<li><strong>Une double déclaration mensuelle.</strong> Le lobby déclare, le décideur aussi. Un écart entre les deux déclenche une enquête.</li>
+<li><strong>Un contrôleur indépendant</strong>, qui enquête automatiquement à chaque violation, sanctionne directement et publie ses rapports. Il est lui-même audité par des citoyens tirés au sort.</li>
+<li><strong>Des sanctions réelles.</strong> Amende, exclusion du registre pendant plusieurs années et, pour une fausse déclaration volontaire, prison. Côté décideur, une rencontre cachée relève de la fiche 1.</li>
+</ol>
+<p><strong>Pourquoi ça marche.</strong> Chaque pièce existe déjà quelque part. Au Canada, une fausse déclaration peut coûter jusqu'à 200 000 dollars et deux ans de prison, et le commissaire peut interdire le lobbying pendant deux ans après une condamnation. La Slovénie impose déjà au responsable public de déclarer chaque contact. Le Canada montre aussi la limite à éviter : sa loi date de 1989, mais la première condamnation n'est arrivée qu'en 2013, en partie parce que les poursuites dépendaient de la police et du parquet. Le lobbying n'est pas interdit, car il permet aussi aux associations et aux experts de se faire entendre. Il est rendu visible, pour peser par ses arguments plutôt que dans l'ombre.</p>
+<p>Sources : <a href="https://laws-lois.justice.gc.ca/eng/acts/L-12.4/section-14.html" target="_blank" rel="noopener">Lobbying Act, art. 14 – Justice Canada</a> ; <a href="https://www.torys.com/insights/publications/2013/05/lobbying-act-shows-real-teeth" target="_blank" rel="noopener">Torys, 2013</a>.</p>
+<p><strong>Faisabilité.</strong> Faisable par une loi ordinaire, en renforçant les pouvoirs de la HATVP.</p>
+<p><strong>Liens avec les autres fiches.</strong> Le contrôleur ne sert que s'il est indépendant de ceux qu'il contrôle (fiche 8). Une rencontre cachée côté décideur relève de la fiche 1, et le lobbying d'un ancien décideur auprès de son administration relève de la fiche 2. En retour, l'empreinte du lobbying fournit les preuves dont ont besoin les fiches 1, 2 et 4 : elle montre, par exemple, qui a demandé la création ou la prolongation d'une niche fiscale.</p>
+<h2 id="sec-5">Fiche 4 — Les baisses d'impôts sans contrepartie</h2>
+<p><strong>Le problème.</strong> Selon la Cour des comptes, les baisses d'impôts représentent 62 Md€ par an en 2023, sans être compensées par des économies, soit environ 40 % du déficit. Celles qui portent sur la fiscalité du capital profitent surtout aux plus aisés, sans l'investissement promis en échange. Et les niches fiscales s'accumulent : le Conseil des prélèvements obligatoires en compte environ 470 et les juge trop nombreuses et instables.</p>
+<p><strong>Dans le registre.</strong> Lignes 6 (ISF remplacé par l'IFI), 7 (flat tax), 9 (impôt sur les sociétés), 10 (taxe d'habitation), 13 (CICE transformé en baisse de cotisations), 14 (exit tax), 25 (refus de taxer les superprofits), 28 (aides aux entreprises), 37 (dette) et 121 (contributions de 2025) ; section « Trois vérifications » (62 Md€ par an) et « Pour aller plus loin » (bilan de la réforme du capital de 2018).</p>
+<p><strong>Le mécanisme.</strong></p>
+<ol>
+<li><strong>Pas de baisse sans financement.</strong> Toute baisse d'impôt durable doit indiquer, dans le même texte, l'économie ou la recette qui la finance. Ce financement est chiffré et certifié par le Haut Conseil des finances publiques, pour éviter les gages fictifs, comme les hausses de taxe sur le tabac inscrites pour la forme et jamais appliquées. Sans cela, elle ne peut pas être votée.</li>
+<li><strong>Une promesse écrite et mesurable.</strong> Chaque baisse annonce ce qu'elle doit produire, en investissement, en emplois ou en salaires, avec un indicateur et un délai.</li>
+<li><strong>Une extinction automatique.</strong> Chaque niche s'éteint au bout de quatre ans, sauf si une évaluation indépendante montre qu'elle atteint son objectif. Un nouveau vote est alors nécessaire pour la prolonger.</li>
+<li><strong>Une reprise de l'avantage.</strong> Une entreprise qui a bénéficié d'une aide conditionnée et ne tient pas son engagement rembourse l'avantage.</li>
+</ol>
+<p><strong>Pourquoi ça marche.</strong> Aujourd'hui, c'est au contribuable de prouver qu'une niche est inutile pour la supprimer. Le mécanisme inverse la charge : c'est à la niche de prouver qu'elle sert. Une baisse d'impôt n'est ni bonne ni mauvaise en soi ; elle le devient selon qu'elle produit ce qu'elle promet. Le principe de reprise existe déjà dans beaucoup d'aides publiques soumises à engagement, on l'étend aux avantages fiscaux. Et la règle de financement empêche simplement de reporter la facture sur la dette.</p>
+<p>Source : <a href="https://www.leclubdesjuristes.com/en-bref/cour-des-comptes-vers-une-limitation-des-niches-fiscales-17579/" target="_blank" rel="noopener">Le Club des juristes, alerte du CPO, 1er octobre 2026</a>.</p>
+<p><strong>Faisabilité.</strong> La reprise de l'avantage relève d'une loi ordinaire. L'extinction des niches et l'interdiction des baisses non financées doivent passer par la loi organique sur les lois de finances : une loi ordinaire peut être contournée par la suivante, comme l'ont montré les lois de programmation qui limitaient déjà la durée des nouvelles niches, sans effet réel.</p>
+<p><strong>Liens avec les autres fiches.</strong> C'est la fiche la plus dépendante de sa voisine : interdire les baisses non financées ne sert à rien si l'État peut reporter la charge sur les caisses communes, ce qui s'est passé depuis 2017 (fiche 5). L'évaluation des niches s'appuie sur le tableau d'indicateurs (fiche 7) et sur un Haut Conseil des finances publiques indépendant (fiche 8). Les économies dégagées financent le bonus contre la trappe à bas salaires (fiche 6) et les réserves de crise (fiche 14). La fiche 11 en est une application aux niches forestières.</p>
+<h2 id="sec-6">Fiche 5 — Les caisses communes</h2>
+<p><strong>Le problème.</strong> Chômage, Sécurité sociale, HLM et EDF ont supporté plus de 30 Md€ de charges que l'État s'épargnait ou reportait sur elles. La loi Veil de 1994 oblige pourtant l'État à compenser les exonérations de cotisations qu'il décide. Mais chaque loi de financement peut y déroger : en 2024, 2,7 Md€ d'exonérations n'étaient pas compensés, dont 2,3 Md€ pour les heures supplémentaires.</p>
+<p><strong>Dans le registre.</strong> Lignes 38 à 43 (fonds de réserve des retraites, fin de la compensation des exonérations, dette Covid, indemnités maternité, projet de ponction sur l'Agirc-Arrco, ponctions sur l'Unédic), 46 (réduction de loyer de solidarité payée par les HLM) et 63 (électricité vendue à bas prix par EDF).</p>
+<p><strong>Le mécanisme.</strong></p>
+<ol>
+<li><strong>Une règle supérieure aux budgets annuels.</strong> Le principe de compensation passe dans une loi organique. Aujourd'hui, chaque loi de financement de la Sécurité sociale peut y déroger. La loi organique supprimerait cette possibilité, et le Conseil constitutionnel censurerait toute exonération non compensée.</li>
+<li><strong>Un droit de veto des gestionnaires.</strong> Tout prélèvement de l'État sur une caisse gérée par les partenaires sociaux, comme l'Unédic, exige l'accord de son conseil d'administration.</li>
+<li><strong>Une facture publique.</strong> Chaque année, un tableau certifié par la Cour des comptes montre ce que chaque caisse a supporté à la place de l'État.</li>
+</ol>
+<p><strong>Pourquoi ça marche.</strong> Le principe est déjà accepté par tous les gouvernements depuis 1994 ; le problème est qu'il peut être contourné chaque année par une simple ligne de loi. Le hisser au niveau organique ne crée pas de nouvelle règle, il empêche seulement de la suspendre en silence. Si l'État veut faire supporter une charge à une caisse commune, il doit le dire et la financer.</p>
+<p>Source : <a href="https://www.assemblee-nationale.fr/dyn/17/amendements/1907/AN/1314.pdf" target="_blank" rel="noopener">Assemblée nationale, amendement n° 1314 au PLFSS 2026</a>.</p>
+<p><strong>Faisabilité.</strong> Faisable, en modifiant la loi organique sur les lois de financement de la Sécurité sociale, avec un contrôle obligatoire du Conseil constitutionnel.</p>
+<p><strong>Liens avec les autres fiches.</strong> Protéger les caisses sans discipline budgétaire déplace le problème vers la dette : la fiche 5 ne tient qu'avec la fiche 4. La facture publique suppose une Cour des comptes dirigée par quelqu'un qui n'a pas préparé les budgets qu'elle contrôle (fiche 8). Elle protège aussi la fiche 6 : sans compensation obligatoire, un bonus sur les allègements serait payé par la Sécurité sociale.</p>
+<h2 id="sec-7">Fiche 6 — La trappe à bas salaires</h2>
+<p><strong>Le problème.</strong> Les exonérations de cotisations sont maximales au Smic et diminuent quand le salaire monte. Selon le rapport Bozio-Wasmer, augmenter un salarié au Smic de 100 € net coûtait ainsi 242 € à l'employeur avec le barème de 2024 ; avec la réduction générale de 2026, notre modèle trouve environ 257 €. L'État compense ensuite avec la prime d'activité, financée par l'impôt et la dette, qui ne crée ni cotisation ni droit au chômage ou à la retraite. Le « +100 € au Smic » de 2018 en est l'exemple : une prime publique à la place d'une hausse de salaire.</p>
+<p><strong>Dans le registre.</strong> Lignes 13 (CICE transformé en exonérations concentrées au Smic) et 57 (prime d'activité et « +100 € » de 2018) ; grille Hollande, lignes H11 (création de la prime d'activité) et H21 (« zéro cotisation » au Smic) ; encadré « Test : la prime d'activité a-t-elle fait monter les prix ? ».</p>
+<p><strong>Le mécanisme.</strong></p>
+<ol>
+<li><strong>Garder le niveau d'allègement au Smic.</strong> Le coût du travail au Smic ne change pas, pour ne pas exposer les emplois les moins qualifiés. Le rapport Bozio-Wasmer estime qu'une suppression totale des allègements détruirait environ 980 000 emplois en équivalent temps plein.</li>
+<li><strong>Un bonus pour les entreprises qui augmentent.</strong> L'allègement total d'une entreprise est majoré selon la progression du salaire horaire de ses salariés qui ouvrent droit à l'allègement, mesurée de façon cumulée depuis leur entrée dans le dispositif et plafonnée à 30 %, au-delà de la revalorisation légale du Smic et des minima de branche. Dans la simulation, une majoration de 1,5 à 2 fois cette progression compense ce que le barème fait perdre, pour un coût d'environ 4 à 5,5 % des allègements avec les hausses de salaire observées aujourd'hui, soit 3 à 4 Md€ par an.</li>
+<li><strong>Des règles contre les contournements.</strong> Le salaire est mesuré à l'heure, pour que des heures supplémentaires ou un passage à temps plein ne comptent pas comme une hausse. Les salariés partis restent dans le calcul, pour qu'on ne gonfle pas la moyenne en se séparant de ceux qu'on n'augmente pas. Le calcul se fait au niveau du groupe, sous-traitance et intérim compris, et la progression comptée est nette des baisses antérieures. Les entreprises jeunes ou très petites ont une règle adaptée.</li>
+<li><strong>Un malus limité.</strong> La simulation montre qu'un malus général sur les entreprises sans progression frapperait une entreprise sur quatre chaque année, pour moitié dans les secteurs à faible marge, et ne rapporterait qu'environ 2 % des allègements. Il est donc réservé aux cas de compression durable dans les grandes entreprises, et le bonus est financé par les économies de la fiche 4.</li>
+<li><strong>Aller par étapes vers un plateau en euros.</strong> À mesure que les finances le permettent, le barème national évolue vers des paliers puis un montant fixe en euros, qui supprime la trappe salarié par salarié.</li>
+<li><strong>Ralentir la baisse de la prime d'activité.</strong> Pour une personne seule sans enfant au Smic, elle diminue d'environ 40 centimes par euro gagné : sur 100 € d'augmentation, il ne reste que 61 €. Une baisse plus lente rend chaque hausse visible, mais étend la prime à des salaires plus élevés : son coût reste à chiffrer.</li>
+<li><strong>Rendre la subvention visible.</strong> Chaque année, on publie par secteur combien la prime d'activité verse aux salariés de ce secteur.</li>
+</ol>
+<p><strong>Pourquoi ça marche.</strong> Le problème n'est pas l'aide elle-même, mais un barème qui pénalise chaque augmentation. Le rapport Bozio-Wasmer fait le même constat, et la réduction générale de 2026 en reprend une partie. La modélisation montre qu'un barème national seul ne peut pas à la fois garder le coût du Smic, tenir le budget et supprimer la trappe : l'allègement doit diminuer quelque part, et la trappe se loge là où il diminue. Le bonus contourne cette contrainte en regardant la trajectoire de l'entreprise plutôt qu'un salaire isolé. Calculé sur la progression cumulée, il compense durablement chaque hausse, au lieu de s'éteindre au bout de quelques années. Les données existent déjà, puisque la déclaration sociale nominative transmet chaque mois le salaire et les heures de chaque salarié. Le dispositif reste à tester sur des données réelles d'entreprises avant d'être généralisé.</p>
+<p>Sources : <a href="https://www.strategie.gouv.fr/publications/mission-bozio-wasmer-politiques-dexonerations-de-cotisations-sociales-une-inflexion" target="_blank" rel="noopener">rapport Bozio-Wasmer, « Les politiques d'exonérations de cotisations sociales : une inflexion nécessaire », octobre 2024</a> ; <a href="https://www.assemblee-nationale.fr/dyn/17/amendements/0622/CION-SOC/AS102.pdf" target="_blank" rel="noopener">Assemblée nationale, amendement AS102, qui reprend l'estimation d'emplois du rapport</a>.</p>
+<p><strong>Faisabilité.</strong> Faisable : les allègements relèvent de la loi de financement de la Sécurité sociale, la prime d'activité de la loi de finances et de décrets. Une expérimentation sur un échantillon d'entreprises permettrait de mesurer le coût réel du bonus avant de le généraliser.</p>
+<p><strong>Liens avec les autres fiches.</strong> Le bonus coûte 3 à 4 Md€ par an : il est financé par les économies de la fiche 4, sinon il creuse la dette. Il doit être compensé à la Sécurité sociale (fiche 5), sinon ce sont les caisses communes qui le paient. La publication de la prime d'activité par secteur s'ajoute au tableau d'indicateurs (fiche 7).</p>
+<h2 id="sec-8">Fiche 7 — Les indicateurs choisis par le pouvoir</h2>
+<p><strong>Le problème.</strong> Un gouvernement choisit les chiffres qu'il met en avant. Le registre montre 2,68 millions de chômeurs au sens de l'Insee, mais 6,53 millions d'inscrits à France Travail toutes catégories, dont des personnes qui travaillent un peu ou se forment. Le premier chiffre ne montre ni la précarisation ni le recul des droits.</p>
+<p><strong>Dans le registre.</strong> Lignes 36 (pauvreté et pauvreté chronique), 61 (chômage au plus bas, mais sur quels emplois), 65 (qui est compté comme chômeur, et qui ne l'est pas) et 67 (niveau de vie et inégalités en 2024).</p>
+<p><strong>Le mécanisme.</strong></p>
+<ol>
+<li><strong>Un tableau de bord fixé par la loi.</strong> Une liste d'indicateurs est définie une fois pour toutes, hors du gouvernement : chômage au sens strict et halo, inscrits toutes catégories, emploi précaire, pauvreté, inégalités de patrimoine, empreinte carbone.</li>
+<li><strong>Publié en même temps que chaque budget.</strong> Il est produit par l'Insee et certifié par l'Autorité de la statistique publique, sans commentaire du gouvernement.</li>
+<li><strong>Toujours ensemble.</strong> Toute communication officielle qui cite un indicateur de la liste doit renvoyer au tableau complet.</li>
+</ol>
+<p><strong>Pourquoi ça marche.</strong> Le chiffre cité n'est pas faux, il est incomplet. Fixer la liste à l'avance empêche de choisir ses indicateurs selon les résultats. C'est la même logique que les comptes d'une entreprise cotée, qui ne peut pas publier seulement les lignes favorables. Une loi de 2015 demande déjà au gouvernement un rapport annuel sur de « nouveaux indicateurs de richesse », mais il reste discret et sans lien avec le budget. Le mécanisme lui donne simplement la même place que le PIB.</p>
+<p><strong>Faisabilité.</strong> Faisable par une loi ordinaire, en complétant la loi de 2015.</p>
+<p><strong>Liens avec les autres fiches.</strong> Seule, cette fiche informe sans contraindre. Elle prend sa force dans les autres : elle sert de base aux évaluations des niches (fiche 4), de preuve de l'information disponible (fiche 1) et de seuils de déclenchement pour la rente de crise et les réserves (fiches 12 et 14). Elle suppose une statistique publique indépendante du gouvernement (fiche 8).</p>
+<h2 id="sec-9">Fiche 8 — Les institutions de contrôle</h2>
+<p><strong>Le problème.</strong> D'anciens membres du gouvernement ou de l'exécutif dirigent les quatre grandes institutions de contrôle : Conseil constitutionnel, Cour des comptes, Conseil d'État et Banque de France. Une ancienne ministre des Comptes publics peut ainsi contrôler des budgets qu'elle a préparés. La règle actuelle rend le blocage difficile : il faut que trois cinquièmes des suffrages exprimés dans les commissions des deux assemblées soient contre. Richard Ferrand a été nommé en février 2025 avec 39 voix pour et 58 contre, une voix sous le seuil de blocage.</p>
+<p><strong>Dans le registre.</strong> Lignes 30 à 33 (Conseil constitutionnel, Cour des comptes, Conseil d'État, Banque de France), 110 (des mesures de l'état d'urgence entrent dans le droit commun) et 119 (état d'urgence envisagé en octobre 2026) ; ligne 122 (lois pour la confiance dans la vie politique) comme contre-exemple.</p>
+<p><strong>Le mécanisme.</strong></p>
+<ol>
+<li><strong>Inverser la majorité.</strong> Les nominations soumises à l'avis du Parlement, et celles qui y échappent aujourd'hui comme la vice-présidence du Conseil d'État, doivent être approuvées par trois cinquièmes des suffrages exprimés, et non plus seulement ne pas être rejetées. Le candidat doit donc convaincre au-delà du camp qui le propose.</li>
+<li><strong>Un délai de carence.</strong> Personne ne peut diriger une institution chargée de contrôler un gouvernement dont il a fait partie au cours des cinq années précédentes.</li>
+<li><strong>Des mandats uniques.</strong> Les mandats ne sont pas renouvelables, pour que personne ne contrôle en pensant à sa prochaine nomination.</li>
+<li><strong>Des pouvoirs d'exception qui s'éteignent.</strong> Toute mesure née d'un état d'urgence disparaît automatiquement après un délai fixé, sauf nouveau vote après évaluation indépendante.</li>
+</ol>
+<p><strong>Pourquoi ça marche.</strong> Avec la règle actuelle, un président dont le camp réunit plus de deux cinquièmes des suffrages exprimés dans les commissions nomme qui il veut. L'approbation positive oblige au consensus, comme pour les juges de la Cour constitutionnelle allemande, élus aux deux tiers, ou pour les huit juges espagnols élus par le Parlement aux trois cinquièmes. Le délai de carence ne remet en cause la compétence de personne : il évite seulement qu'on soit juge de sa propre action. L'extinction automatique impose au moins un nouveau débat et une évaluation avant toute prolongation. Elle ne suffit pas seule : la loi de 2017 qui a fait entrer des mesures de l'état d'urgence dans le droit commun prévoyait déjà une extinction, et elle a été pérennisée en 2021. Pour être contraignante, la règle doit être inscrite dans la Constitution.</p>
+<p>Sources : <a href="https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/cion_lois/l17cion_lois2425038_compte-rendu.pdf" target="_blank" rel="noopener">Assemblée nationale, compte rendu de la commission des lois du 19 février 2025</a> ; <a href="https://lcp.fr/actualites/a-revoir-presidence-du-conseil-constitutionnel-richard-ferrand-nomme-a-une-voix-pres-a-l" target="_blank" rel="noopener">LCP, résultat combiné des deux commissions</a>.</p>
+<p><strong>Faisabilité.</strong> En partie. Le délai de carence peut être instauré par une loi organique. L'inversion de la majorité demande une révision de l'article 13 de la Constitution, tout comme une extinction vraiment contraignante des pouvoirs d'exception.</p>
+<p><strong>Liens avec les autres fiches.</strong> C'est la fiche dont dépendent presque toutes les autres : le Haut Conseil des finances publiques (fiche 4), la Cour des comptes (fiches 5 et 14), le contrôleur du lobbying (fiche 3), les enquêteurs de la fiche 1 et l'Autorité de la statistique (fiche 7). Si ces institutions sont dirigées par ceux qu'elles contrôlent, toutes ces fiches s'affaiblissent en même temps.</p>
+<h2 id="sec-10">Fiche 9 — Le pouvoir des acheteurs dans l'alimentation</h2>
+<p><strong>Le problème.</strong> Égalim devait mieux rémunérer les agriculteurs. En mai 2026, la commission d'enquête du Sénat décrit trois alliances d'achat qui pèsent plus de 34 %, plus de 29 % et environ 24 % du marché, face à des centaines de milliers de producteurs. Pour un industriel, la grande distribution peut représenter 79 à 94 % du chiffre d'affaires. Les centrales européennes contournent la loi française, et sept des huit sanctions prononcées contre elles depuis 2019 n'ont pas été exécutées à cause des recours.</p>
+<p><strong>Dans le registre.</strong> Lignes 44 (loi Égalim 1), 71 (réponse à la crise agricole), 72 (loi d'orientation agricole) et 74 (commission d'enquête du Sénat sur les marges de la distribution).</p>
+<p><strong>Le mécanisme.</strong></p>
+<ol>
+<li><strong>Mesurer le pouvoir d'achat, pas seulement le pouvoir de vente.</strong> Le droit de la concurrence surveille surtout les vendeurs trop puissants. On ajoute un indice de concentration côté acheteurs, calculé chaque année par l'Autorité de la concurrence. Au-delà d'un seuil, les négociations de l'alliance passent sous contrôle renforcé.</li>
+<li><strong>Faire appliquer la loi déjà votée.</strong> Depuis la loi Égalim 3 de 2023, les règles françaises s'appliquent déjà à tout produit vendu en France, même négocié par une centrale européenne. Il faut les rendre effectives : déclaration obligatoire des flux financiers avec ces centrales, comme le propose le Sénat, et extension à ces centrales de la directive européenne de 2019 sur les pratiques déloyales.</li>
+<li><strong>Des sanctions qui tombent.</strong> Aujourd'hui, la plupart des sanctions contre les centrales passent par une action du ministre devant le juge, qui dure des années. On les complète par des amendes administratives, payées sur un compte bloqué dès leur prononcé et restituées si le recours aboutit.</li>
+<li><strong>Des marges visibles.</strong> Publication annuelle de l'écart entre l'évolution des prix en rayon et celle des tarifs négociés, et affichage des marges sur les produits bruts, en commençant par les fruits et légumes.</li>
+</ol>
+<p><strong>Pourquoi ça marche.</strong> Quand quelques acheteurs font face à une multitude de producteurs, le prix ne se négocie plus, il s'impose. Égalim a voulu fixer de meilleurs prix sans toucher à ce rapport de force, et les centrales ont déplacé les négociations hors de France. Mesurer la concentration des acheteurs attaque la cause plutôt que le symptôme. Le compte bloqué réduit l'intérêt de faire durer les recours. Et la transparence des marges permet à chacun de voir où va la valeur.</p>
+<p>Sources : <a href="https://www.senat.fr/rap/r25-632-1/r25-632-1-syn.pdf" target="_blank" rel="noopener">Sénat, synthèse du rapport sur les marges, mai 2026</a>.</p>
+<p><strong>Faisabilité.</strong> En partie. Le contrôle de la concentration des acheteurs, le compte bloqué et la transparence des marges relèvent d'une loi. Étendre la directive européenne de 2019 aux centrales européennes relève de l'Union.</p>
+<p><strong>Liens avec les autres fiches.</strong> La même mesure de concentration s'applique à la distribution en outre-mer (fiche 10). Un producteur qui ne couvre pas ses coûts disparaît, et avec lui une production que les réserves de crise ne peuvent pas remplacer longtemps (fiches 13 et 14). Les négociations entre centrales et pouvoirs publics doivent être visibles (fiche 3).</p>
+<h2 id="sec-11">Fiche 10 — Les outre-mer</h2>
+<p><strong>Le problème.</strong> Le texte contre la vie chère a été vidé puis jamais voté définitivement. Sa version initiale interdisait à un groupe de distribution de dépasser 25 % de part de marché, mais le seuil a été renvoyé à un décret, le ministre invoquant le droit de propriété. Pour le chlordécone, l'État reconnaît une part de responsabilité en 2026, mais conteste devant le Conseil d'État la décision qui l'oblige à indemniser.</p>
+<p><strong>Dans le registre.</strong> Lignes 53 à 55 (textes contre la vie chère et loi Lurel), 75 (écarts de prix avec l'Hexagone), 76 (pauvreté dans les outre-mer), 77 (chlordécone) et 116 (Mayotte).</p>
+<p><strong>Le mécanisme.</strong></p>
+<ol>
+<li><strong>Un plafond inscrit dans la loi.</strong> Au-delà de 25 % de part de marché dans un territoire, un groupe doit présenter un plan pour revenir sous le seuil, sous le contrôle de l'Autorité de la concurrence. En attendant, il ne peut pas ouvrir de nouvelle grande surface, comme le prévoyait déjà l'Assemblée pour les groupes au-delà de 15 %.</li>
+<li><strong>Des prix comparables publiés.</strong> Chaque mois, l'écart de prix avec l'Hexagone est publié par famille de produits et par enseigne, avec la part due au transport et à l'octroi de mer.</li>
+<li><strong>Étendre le fonds d'indemnisation.</strong> Le Fonds d'indemnisation des victimes de pesticides, créé en 2020, couvre déjà certaines maladies liées au chlordécone en cas d'exposition professionnelle. On l'étend aux habitants exposés par l'alimentation et l'environnement, sur barème et sans procès contre l'État.</li>
+</ol>
+<p><strong>Pourquoi ça marche.</strong> Sur un territoire isolé, quelques groupes contrôlent à la fois l'importation, la logistique et la vente. La concurrence ne peut pas jouer seule, il faut une limite à la concentration. Publier la décomposition de l'écart de prix permet de distinguer ce qui relève de l'éloignement de ce qui relève des marges. Quant au fonds, il peut remplacer des années de procès par une réparation sur barème, un principe que l'État applique déjà pour l'amiante et pour les pesticides.</p>
+<p>Source : <a href="https://www.maire-info.com/outre-mer/les-deputes-adoptent-en-premiere-lecture-un-texte-contre-la-vie-chere-en-outre-mer-article-29326" target="_blank" rel="noopener">Maire-info, adoption en première lecture, 24 janvier 2025</a>.</p>
+<p><strong>Faisabilité.</strong> Faisable par une loi, mais le plafond de part de marché risque une censure au nom du droit de propriété, comme l'a souligné le gouvernement en 2025. Le fonds d'indemnisation ne pose aucun obstacle juridique.</p>
+<p><strong>Liens avec les autres fiches.</strong> Le plafond de part de marché applique aux outre-mer la logique de concentration de la fiche 9. La décomposition des écarts de prix rejoint le tableau d'indicateurs (fiche 7). La crise de l'eau à Mayotte relève des réserves de la fiche 14.</p>
+<h2 id="sec-12">Fiche 11 — Les forêts</h2>
+<p><strong>Le problème.</strong> Environ 400 M€ d'avantages fiscaux forestiers par an, soumis à un document de gestion mais à aucun critère écologique, pensés d'abord pour la transmission du patrimoine. Les aides au reboisement ont payé la coupe et la replantation de forêts « pauvres » non sinistrées : l'aide publique y vaut à peu près le prix de la forêt, alors que le carbone relâché vaut 19 000 à 76 000 € par hectare. Les amendements proposant un bonus pour la gestion sans coupe rase ont tous été rejetés.</p>
+<p><strong>Dans le registre.</strong> Lignes 91 à 102 (replantation financée par France Relance, plan d'un milliard d'arbres, crédit d'impôt DEFI, niches forestières, critère de rentabilité des aides, essences non publiées, avantages fiscaux dans le prix des forêts, absence de vote nominatif).</p>
+<p><strong>Le mécanisme.</strong></p>
+<ol>
+<li><strong>Pas d'avantage fiscal sans gestion durable.</strong> L'exonération des droits de succession et de l'IFI est réservée aux forêts gérées sans coupe rase au-delà d'un seuil, avec un document de gestion vérifié.</li>
+<li><strong>Une aide au reboisement fondée sur l'état réel de la forêt.</strong> Le critère n'est plus seulement économique. Une forêt vivante non sinistrée n'est pas éligible, et toute coupe financée publiquement intègre le coût du carbone relâché.</li>
+<li><strong>Payer ce qui protège.</strong> Une partie des 400 M€ est redirigée vers une prime à l'hectare pour les forêts gérées en couvert continu.</li>
+<li><strong>Un contrôle sur le terrain.</strong> Des visites aléatoires vérifient que la gestion déclarée correspond à la réalité, avec reprise de l'avantage en cas d'écart.</li>
+</ol>
+<p><strong>Pourquoi ça marche.</strong> Aujourd'hui, l'argent public récompense la détention d'une forêt, quel que soit son état, et peut même financer sa destruction. Le mécanisme ne crée pas de dépense nouvelle : il conditionne une dépense existante à ce qu'elle est censée servir. Il applique à la forêt la même règle qu'à toute niche : prouver qu'elle sert l'objectif annoncé, ici le climat et la filière bois.</p>
+<p><strong>Faisabilité.</strong> Faisable dans une loi de finances pour les niches ; les critères de l'aide au reboisement relèvent d'un simple texte réglementaire. Les amendements allant dans ce sens existent déjà, ils ont été rejetés.</p>
+<p><strong>Liens avec les autres fiches.</strong> C'est l'application aux forêts de la règle de la fiche 4 : une niche doit prouver qu'elle sert son objectif, sinon elle s'éteint. L'empreinte carbone, suivie dans le tableau d'indicateurs (fiche 7), sert à mesurer cet objectif. La fiche 3 montre qui défend ces avantages quand ils sont discutés.</p>
+<h2 id="sec-13">Fiche 12 — La rente de crise</h2>
+<p><strong>Le problème.</strong> Une rente n'est pas illégitime en soi. Elle pose question quand elle naît d'une crise qui pèse sur les autres : en 2022, des entreprises ont réalisé des bénéfices exceptionnels grâce à la flambée des prix de l'énergie, pendant que les ménages supportaient la hausse des prix, en partie atténuée par le bouclier tarifaire. La France a appliqué la contribution européenne de 33 % sur ces bénéfices, mais seulement aux entreprises qui tirent au moins 75 % de leur chiffre d'affaires du pétrole, du gaz, du charbon ou du raffinage. Un groupe diversifié y échappe en grande partie.</p>
+<p><strong>Dans le registre.</strong> Lignes 25 (refus d'une taxe générale sur les superprofits), 60 (boucliers tarifaires), 63 (spéculation de fournisseurs d'électricité) et 121 (contributions temporaires de 2025).</p>
+<p><strong>Le mécanisme.</strong></p>
+<ol>
+<li><strong>Un dispositif permanent, déclenché automatiquement.</strong> Il s'active dès qu'un indice de crise est franchi, par exemple une hausse brutale des prix de l'énergie ou de l'alimentation, sans attendre un vote dans l'urgence.</li>
+<li><strong>Une base qui suit la rente, pas le secteur.</strong> Est concernée toute entreprise des secteurs directement touchés par le choc de prix, dont les bénéfices dépassent nettement sa moyenne des années précédentes, quelle que soit la part de cette activité dans son chiffre d'affaires. La croissance due à des investissements ou à des volumes nouveaux est exclue.</li>
+<li><strong>Un produit fléché.</strong> Les recettes alimentent un compte d'affectation spéciale au profit des ménages les plus touchés par la même crise.</li>
+<li><strong>Une sortie automatique</strong> quand l'indice redescend.</li>
+</ol>
+<p><strong>Pourquoi ça marche.</strong> Le principe a déjà été accepté par l'Union européenne en 2022 ; il a seulement été conçu dans l'urgence, avec un périmètre étroit. Un dispositif connu à l'avance réduit l'incertitude pour les investisseurs, comparé à une taxe votée dans l'urgence. Sa principale difficulté est de distinguer un bénéfice tiré de la crise d'une croissance due à d'autres raisons ; c'est pourquoi la base est limitée aux secteurs exposés au choc de prix. Il protège aussi la confiance : quand une crise fait payer les uns et enrichit les autres sans correction, c'est la cohésion qui s'abîme.</p>
+<p>Source : <a href="https://www.lemondedudroit.fr/fiscal/309-fiscalite-des-entreprises/87473-creation-d-une-contribution-temporaire-de-solidarite.html" target="_blank" rel="noopener">Le Monde du droit, contribution temporaire de solidarité, mai 2023</a>.</p>
+<p><strong>Faisabilité.</strong> Faisable dans une loi de finances, sur le modèle déjà appliqué en 2022.</p>
+<p><strong>Liens avec les autres fiches.</strong> L'indice de crise qui déclenche le dispositif vient du tableau d'indicateurs (fiche 7). Les recettes financent les ménages touchés et le bouclier ciblé de la fiche 14 : sans elles, les réserves de crise retomberaient sur la dette, ce que la fiche 4 interdit.</p>
+<h2 id="sec-14">Fiche 13 — Les productions stratégiques</h2>
+<p><strong>Le problème.</strong> En 2024, l'État laisse vendre le Doliprane à un fonds américain. Il n'entre qu'à hauteur de 1 à 2 % du capital via Bpifrance et obtient des garanties limitées dans le temps, avec 40 M€ de pénalité en cas d'arrêt de production. Plus largement, le déficit commercial des biens reste d'environ 81 Md€ en 2024.</p>
+<p><strong>Dans le registre.</strong> Lignes 1 (vente de la branche énergie d'Alstom), 89 (vente du Doliprane) et 90 (déficit commercial).</p>
+<p><strong>Le mécanisme.</strong></p>
+<ol>
+<li><strong>Des pénalités proportionnées.</strong> Pour une production jugée stratégique, la pénalité en cas de délocalisation ou d'arrêt est calculée sur la valeur de l'opération et le coût de reconstruction de la capacité perdue, pas fixée forfaitairement.</li>
+<li><strong>Des conditions qui durent.</strong> Les conditions imposées lors du contrôle des investissements étrangers, comme le maintien d'un site, durent aussi longtemps que la production reste jugée essentielle, et non quelques années.</li>
+<li><strong>Une liste publique.</strong> Les productions stratégiques sont listées et révisées chaque année après avis indépendant, pour que la protection ne dépende pas d'une négociation au cas par cas.</li>
+</ol>
+<p><strong>Pourquoi ça marche.</strong> Une pénalité de 40 M€ pèse peu face à une opération de plusieurs milliards : elle fixe le prix de la sortie plutôt qu'elle ne l'empêche. Une pénalité proportionnée rend l'engagement crédible. L'outil existe déjà : le contrôle des investissements étrangers permet d'imposer des conditions à un rachat. Il manque des pénalités proportionnées et une durée liée au caractère stratégique de la production. Une action spécifique de l'État serait plus fragile, car la Cour de justice de l'Union européenne en limite fortement l'usage dans les entreprises privées. La liste publique évite l'arbitraire, dans un sens comme dans l'autre.</p>
+<p><strong>Faisabilité.</strong> Faisable par une loi, dans les limites du droit européen sur la libre circulation des capitaux.</p>
+<p><strong>Liens avec les autres fiches.</strong> La liste des productions stratégiques sert aussi aux réserves de crise, par exemple pour les médicaments (fiche 14). La protection de l'alimentation passe aussi par le rapport de force avec les acheteurs (fiche 9). Un décideur qui autorise un rachat puis rejoint l'acquéreur relève de la fiche 2.</p>
+<h2 id="sec-15">Fiche 14 — Les crises à venir : des réserves prêtes avant le choc</h2>
+<p><strong>Le problème.</strong> Les crises récentes ont été gérées dans l'urgence, avec des dispositifs décidés après coup. Au début du Covid, le stock de masques n'avait pas été renouvelé et la pénurie était connue avant le confinement, selon la commission d'enquête du Sénat. L'épidémie d'influenza aviaire de 2021-2022 a coûté près de 1,1 Md€ d'indemnisations. En 2023, les quelque 310 000 habitants de Mayotte n'ont eu l'eau que deux jours sur trois pendant des semaines. Plusieurs de ces risques sont pourtant connus et chiffrés à l'avance.</p>
+<p><strong>Dans le registre.</strong> Lignes 18 (« quoi qu'il en coûte » et bouclier énergétique), 60 (boucliers tarifaires), 108 (chèques énergie) et 116 (crise de l'eau à Mayotte) ; section « Médias et fausses informations » (masques en 2020).</p>
+<p><strong>Le mécanisme.</strong> Une même règle, appliquée à chaque domaine à risque :</p>
+<ol>
+<li><strong>Une réserve en nature, pas seulement de l'argent.</strong> Indemniser après coup ne remplace pas ce qui manque pendant la crise : des bêtes, des médicaments, de l'eau, de l'énergie. Chaque domaine dispose d'une réserve physique, complémentaire des fonds d'indemnisation existants.</li>
+<li><strong>Dimensionnée sur le pic d'une crise réelle</strong>, et non sur la moyenne des années calmes.</li>
+<li><strong>Renouvelée en continu.</strong> Les stocks tournent dans l'usage courant (hôpitaux, élevages, fournisseurs) pour ne jamais périmer, l'erreur commise avec les masques.</li>
+<li><strong>Déclenchée et levée automatiquement</strong> par des seuils publics fixés à l'avance, tirés des indicateurs de la fiche 7. La sortie est progressive, pour ne pas créer de choc inverse.</li>
+<li><strong>Contrôlée chaque année en public.</strong> L'état des réserves est certifié par la Cour des comptes. Laisser fondre une réserve malgré les alertes relève de la fiche 1.</li>
+</ol>
+<p><strong>Les domaines retenus.</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Domaine</th>
+<th>Risque documenté</th>
+<th>Ce qui existe</th>
+<th>Ce qui manque</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Élevage (épizooties)</td>
+<td>Influenza aviaire 2021-2022 : près de 1,1 Md€ d'indemnisations</td>
+<td>Fonds de mutualisation sanitaire (FMSE), qui indemnise en argent ; vaccination</td>
+<td>Un cheptel de réserve sain, réparti en noyaux régionaux séparés pour limiter la contagion, et un stock de fourrage, pour reconstituer les troupeaux</td>
+</tr>
+<tr>
+<td>Santé (pandémie)</td>
+<td>Pénurie de masques en 2020</td>
+<td>Stock stratégique de Santé publique France</td>
+<td>Un stock tournant, dimensionné sur le pic de 2020 et audité chaque année</td>
+</tr>
+<tr>
+<td>Médicaments</td>
+<td>2 400 signalements de risque de rupture en 2020, 59 % de plus qu'en 2019</td>
+<td>Stock de sécurité de deux mois, quatre mois pour 422 médicaments (décret de 2021)</td>
+<td>Des capacités de production réservées en Europe pour les médicaments de la liste stratégique (fiche 13), activables en cas de rupture</td>
+</tr>
+<tr>
+<td>Énergie</td>
+<td>Flambée des prix de 2022</td>
+<td>Stocks pétroliers stratégiques obligatoires ; stockage de gaz rempli à 90 % chaque hiver (règle européenne de 2022, prolongée jusqu'en 2027)</td>
+<td>Un bouclier automatique ciblé sur les ménages modestes, déclenché par un indice de prix et financé par la rente de crise (fiche 12), au lieu d'un bouclier général voté dans l'urgence</td>
+</tr>
+<tr>
+<td>Intrants agricoles</td>
+<td>L'Union importe plus de 60 % de ses engrais ; l'urée a dépassé 1 000 $ la tonne en 2022 ; la Russie fournissait encore un quart des importations européennes début 2025</td>
+<td>Surtaxe européenne progressive sur les engrais russes</td>
+<td>Un stock tampon d'engrais azotés et un indicateur public de dépendance aux fournisseurs</td>
+</tr>
+<tr>
+<td>Climat et assurance</td>
+<td>Sécheresse : 43 Md€ de sinistres projetés de 2020 à 2050, trois fois plus que sur les trente années précédentes ; surprime catastrophes naturelles portée de 12 % à 20 % en 2025, et 26 % jugés nécessaires d'ici 2050</td>
+<td>Régime catastrophes naturelles et réassurance publique</td>
+<td>Une surprime ajustée par une règle automatique selon la sinistralité, au lieu d'un relèvement tous les vingt-cinq ans, et une part réservée à la prévention</td>
+</tr>
+<tr>
+<td>Eau potable dans les territoires fragiles</td>
+<td>Mayotte 2023 : l'eau deux jours sur trois pendant des semaines</td>
+<td>Distribution d'urgence, travaux décidés pendant la crise</td>
+<td>Des unités mobiles de production d'eau prépositionnées, et un plan déclenché par le niveau des retenues, avant la rupture</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Pourquoi ça marche.</strong> Le principe existe déjà pour l'énergie : stocks pétroliers obligatoires, stockage de gaz imposé depuis 2022. Ces règles ne coûtent rien de plus pendant la crise, elles coûtent avant, en stockage. On l'étend aux domaines où la France improvise encore. Indemniser en argent ne suffit pas quand le bien manque partout : en 2020, tous les pays cherchaient des masques en même temps. Une réserve dimensionnée sur un pic réel et renouvelée en continu évite les deux échecs connus, le stock trop petit et le stock qui périme. Le déclenchement automatique retire la décision de l'urgence, où elle coûte le plus cher et où elle est la plus exposée aux pressions.</p>
+<p>Sources : <a href="https://questions.assemblee-nationale.fr/q16/16-6890QE.htm" target="_blank" rel="noopener">Assemblée nationale, réponse sur l'influenza aviaire, 2023</a> ; <a href="https://www.europe1.fr/politique/gestion-du-covid-19-ce-quil-faut-retenir-du-rapport-de-la-commission-denquete-du-senat-4011352" target="_blank" rel="noopener">Europe 1, rapport du Sénat sur la gestion du Covid</a> ; <a href="https://www.banquedesterritoires.fr/crise-de-leau-mayotte-letat-va-prendre-en-charge-les-factures-de-septembre-decembre" target="_blank" rel="noopener">Banque des territoires, crise de l'eau à Mayotte</a> ; <a href="https://informations.handicap.fr/a-422-medicaments-vitaux-stock-minimal-quatre-mois-32505.php" target="_blank" rel="noopener">Handicap.fr, stock de quatre mois pour 422 médicaments</a> ; <a href="https://www.consilium.europa.eu/fr/press/press-releases/2025/07/18/gas-storage-council-greenlights-2-year-extension-of-reserves-filling-rules-to-safeguard-winter-supply/pdf/" target="_blank" rel="noopener">Conseil de l'UE, stockage de gaz</a> ; <a href="https://www.terre-net.fr/engrais/article/896418/la-tenace-dependance-europeenne-aux-engrais-impotes" target="_blank" rel="noopener">Terre-net / AFP, dépendance aux engrais</a> ; <a href="https://www.senat.fr/rap/r23-603/r23-6033.html" target="_blank" rel="noopener">Sénat, régime catastrophes naturelles, 2024</a>.</p>
+<p><strong>Faisabilité.</strong> Faisable par une loi ordinaire et les lois de finances : les stocks de médicaments et d'énergie existent déjà dans le droit, il s'agit d'étendre la règle. Le cheptel de réserve et les réserves d'eau demandent des investissements, à étaler sur plusieurs budgets. Le coût du stockage est le prix de la préparation : il se compare au coût d'une crise improvisée, comme le 1,1 Md€ de l'influenza aviaire.</p>
+<p><strong>Liens avec les autres fiches.</strong> Les seuils de déclenchement viennent du tableau d'indicateurs (fiche 7). Le financement vient de la rente de crise (fiche 12) et de la règle qui interdit de reporter la dépense sur la dette (fiche 4). Le contrôle annuel suppose une Cour des comptes indépendante (fiche 8), et laisser fondre une réserve malgré les alertes relève de la fiche 1. Pour les médicaments, la réserve s'appuie sur la liste de la fiche 13.</p>
+<h2 id="sec-16">Pourquoi les fiches forment un tout</h2>
+<p>Prise isolément, chaque fiche peut être contournée. Le registre le montre plusieurs fois : une règle seule finit suspendue, déplacée ou vidée de son effet.</p>
+<ul>
+<li>La loi Veil de 1994 obligeait déjà l'État à compenser les exonérations de cotisations ; chaque loi de financement a pu y déroger.</li>
+<li>La loi de 2017 qui faisait entrer des mesures de l'état d'urgence dans le droit commun prévoyait leur extinction ; elles ont été pérennisées en 2021.</li>
+<li>Les lois de programmation limitaient déjà la durée des nouvelles niches fiscales, sans effet réel.</li>
+<li>La HATVP existe, mais elle ne peut souvent émettre que des réserves.</li>
+</ul>
+<p>À chaque fois, la règle existait, mais rien autour ne l'empêchait d'être contournée.</p>
+<p><strong>Comment les fiches se tiennent.</strong></p>
+<ul>
+<li><strong>Le financement.</strong> Interdire les baisses d'impôts non financées (fiche 4) ne sert à rien si l'État peut reporter la charge sur les caisses communes (fiche 5) : c'est exactement ce qui s'est passé depuis 2017. À l'inverse, protéger les caisses sans discipline budgétaire déplace le problème vers la dette. Le bonus contre la trappe à bas salaires (fiche 6) et les réserves de crise (fiche 14) sont financés grâce à ces deux fiches et à la rente de crise (fiche 12).</li>
+<li><strong>La preuve.</strong> La loyauté des gouvernants (fiche 1) suppose de savoir qui disposait de quelle information et qui a pesé sur la décision : c'est l'empreinte du lobbying (fiche 3) et le tableau d'indicateurs (fiche 7). Sans eux, l'intention est impossible à établir.</li>
+<li><strong>Le contrôle.</strong> Toutes les règles passent par des contrôleurs : le Haut Conseil des finances publiques pour les financements, la Cour des comptes pour les caisses et les réserves, le contrôleur du lobbying, les enquêteurs de la fiche 1. Si ces institutions sont dirigées par ceux qu'elles contrôlent, tout le reste s'affaiblit : c'est le rôle de la fiche 8.</li>
+<li><strong>La captation.</strong> Une règle bien écrite peut être réécrite par ceux qu'elle gêne. Le délit d'initié politique (fiche 2) et la transparence du lobbying (fiche 3) empêchent que les autres fiches soient défaites discrètement.</li>
+<li><strong>L'économie réelle.</strong> Le pouvoir des acheteurs (fiche 9), les outre-mer (fiche 10), les forêts (fiche 11), les productions stratégiques (fiche 13) et les réserves de crise (fiche 14) se renforcent mutuellement : un producteur qui ne couvre pas ses coûts disparaît, et une production disparue ne se reconstitue pas en pleine crise.</li>
+</ul>
+<p><strong>Ce que ça implique.</strong> Appliquer une seule fiche reviendrait à boucher un trou en laissant les autres ouverts : la pression se déplacerait vers la règle la plus faible, et le résultat serait presque nul. Les fiches sont donc pensées pour être adoptées ensemble, ou au moins par blocs cohérents : le financement (fiches 4, 5 et 12), la transparence et le contrôle (fiches 1, 2, 3, 7 et 8), l'économie réelle (fiches 6, 9, 10, 11, 13 et 14).</p>
+<p><strong>Les dépendances les plus fortes, fiche par fiche.</strong></p>
+<ul>
+<li><strong>Fiche 1 (loyauté)</strong> : sans les preuves des fiches 3 et 7 et l'intérêt personnel de la fiche 2, l'intention reste impossible à établir. Sans les enquêteurs indépendants de la fiche 8, elle ne s'applique jamais.</li>
+<li><strong>Fiche 4 (baisses d'impôts)</strong> : c'est la plus dépendante. Sans la fiche 5, l'État reporte la charge sur les caisses communes, exactement ce qui s'est passé depuis 2017.</li>
+<li><strong>Fiche 5 (caisses)</strong> : elle ne tient qu'avec la fiche 4, sinon le problème part vers la dette.</li>
+<li><strong>Fiche 6 (trappe)</strong> : son bonus de 3 à 4 Md€ doit être financé par la fiche 4 et compensé à la Sécurité sociale par la fiche 5, sinon il creuse la dette ou vide les caisses.</li>
+<li><strong>Fiche 7 (indicateurs)</strong> : seule, elle informe sans contraindre. Elle prend sa force comme base des évaluations (fiche 4), comme preuve (fiche 1) et comme seuil de déclenchement (fiches 12 et 14).</li>
+<li><strong>Fiche 8 (institutions)</strong> : presque toutes les autres en dépendent. Si les contrôleurs sont nommés par ceux qu'ils contrôlent, les fiches 1, 3, 4, 5, 7 et 14 s'affaiblissent en même temps.</li>
+<li><strong>Fiches 12 et 14 (rente et réserves de crise)</strong> : la rente finance les réserves. Sans elle, les réserves retomberaient sur la dette, ce que la fiche 4 interdit.</li>
+</ul>
+<h2 id="sec-17">Ce qui peut être fait, et comment</h2>
+<p>La plupart de ces mécanismes relèvent d'une simple loi. Seuls ceux qui touchent au contrôle du pouvoir lui-même exigent une révision de la Constitution.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Fiche</th>
+<th>Outil juridique</th>
+<th>Faisable aujourd'hui</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Loyauté des gouvernants</td>
+<td>Loi et loi organique pour l'obligation et l'enquête ; révision de la Constitution pour la destitution et le référendum</td>
+<td>En partie</td>
+</tr>
+<tr>
+<td>2. Délit d'initié politique</td>
+<td>Loi ordinaire ; loi organique pour les parlementaires</td>
+<td>Oui</td>
+</tr>
+<tr>
+<td>3. Lobbying</td>
+<td>Loi ordinaire</td>
+<td>Oui</td>
+</tr>
+<tr>
+<td>4. Baisses d'impôts</td>
+<td>Loi organique sur les lois de finances ; loi ordinaire pour la reprise</td>
+<td>Oui</td>
+</tr>
+<tr>
+<td>5. Caisses communes</td>
+<td>Loi organique sur le financement de la Sécurité sociale</td>
+<td>Oui</td>
+</tr>
+<tr>
+<td>6. Trappe à bas salaires</td>
+<td>Loi de financement de la Sécurité sociale ; loi de finances et décrets pour la prime d'activité</td>
+<td>Oui, après expérimentation</td>
+</tr>
+<tr>
+<td>7. Indicateurs</td>
+<td>Loi ordinaire</td>
+<td>Oui</td>
+</tr>
+<tr>
+<td>8. Institutions de contrôle</td>
+<td>Révision de la Constitution (article 13) ; loi organique pour le délai de carence</td>
+<td>En partie</td>
+</tr>
+<tr>
+<td>9. Pouvoir des acheteurs</td>
+<td>Loi ordinaire ; directive européenne</td>
+<td>En partie</td>
+</tr>
+<tr>
+<td>10. Outre-mer</td>
+<td>Loi ordinaire</td>
+<td>Oui, avec un risque de censure</td>
+</tr>
+<tr>
+<td>11. Forêts</td>
+<td>Loi de finances ; texte réglementaire pour l'aide au reboisement</td>
+<td>Oui</td>
+</tr>
+<tr>
+<td>12. Rente de crise</td>
+<td>Loi de finances</td>
+<td>Oui</td>
+</tr>
+<tr>
+<td>13. Productions stratégiques</td>
+<td>Loi ordinaire</td>
+<td>Oui, dans les limites du droit européen</td>
+</tr>
+<tr>
+<td>14. Crises à venir</td>
+<td>Loi ordinaire et lois de finances ; investissements étalés sur plusieurs budgets</td>
+<td>Oui, par étapes</td>
+</tr>
+</tbody>
+</table></div>
+<p>Onze fiches sur quatorze sont donc faisables dès aujourd'hui, sans toucher à la Constitution. Ce qui manque pour elles n'est pas un outil juridique, mais une majorité prête à les voter. Les plus simples à porter sont celles sur le lobbying, les indicateurs, les forêts et la rente de crise : elles demandent un seul vote, et chacune s'appuie sur un précédent existant.</p>
+<h2 id="sec-18">Vérification : les mécanismes suffisent-ils ?</h2>
+<p>Sur quatorze fiches, quatre atteignent leur objectif, une l'atteint sous condition et huit ne le couvrent qu'en partie. Pour la trappe à bas salaires, la solution trouvée fonctionne sur une population d'entreprises simulée et reste à vérifier sur données réelles. Chaque fiche a été confrontée à son objectif, à ses contournements possibles et, quand c'était possible, à un chiffrage.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Fiche</th>
+<th>Objectif</th>
+<th>Verdict</th>
+<th>Faille principale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Loyauté</td>
+<td>Sanctionner une décision prise contre l'information disponible</td>
+<td>Suffisant sous condition</td>
+<td>Prouver l'intention est difficile ; sans protection forte de l'erreur de bonne foi, risque de paralysie des décideurs</td>
+</tr>
+<tr>
+<td>2. Délit d'initié politique</td>
+<td>Empêcher de profiter d'un projet qu'on a préparé</td>
+<td>Suffisant</td>
+<td>Prête-noms familiaux et sociétés étrangères : il faut croiser avec le registre des bénéficiaires effectifs</td>
+</tr>
+<tr>
+<td>3. Lobbying</td>
+<td>Savoir qui a pesé sur quelle décision</td>
+<td>Suffisant</td>
+<td>L'influence informelle échappe aux déclarations : dîners, anciens collègues, études financées par un intérêt privé</td>
+</tr>
+<tr>
+<td>4. Baisses d'impôts</td>
+<td>Stopper les baisses non financées et les niches inutiles</td>
+<td>Partiel</td>
+<td>Agit sur les nouvelles mesures, pas sur les 62 Md€ par an déjà en place, sauf à les soumettre aussi à l'extinction</td>
+</tr>
+<tr>
+<td>5. Caisses communes</td>
+<td>Empêcher l'État de faire payer les caisses</td>
+<td>Partiel</td>
+<td>Couvre les exonérations (2,7 Md€ par an), pas les autres charges : baisse des APL payée par les HLM (1,1 à 1,3 Md€ par an), vente forcée d'électricité par EDF (8,1 Md€)</td>
+</tr>
+<tr>
+<td>6. Trappe à bas salaires</td>
+<td>Qu'une hausse de salaire ne coûte pas plus cher que sans allègement</td>
+<td>Prometteur, chiffré sur simulation</td>
+<td>Le barème en cloche déplaçait la trappe ; le bonus par entreprise la neutralise dans le modèle, pour 3 à 4 Md€ par an dans la simulation recalée ; reste à vérifier sur données réelles</td>
+</tr>
+<tr>
+<td>7. Indicateurs</td>
+<td>Empêcher de choisir ses chiffres</td>
+<td>Partiel</td>
+<td>Informe sans contraindre : utile surtout s'il sert aux évaluations de la fiche 4</td>
+</tr>
+<tr>
+<td>8. Institutions de contrôle</td>
+<td>Éviter qu'on contrôle sa propre action</td>
+<td>Suffisant</td>
+<td>Ne vise que les présidences : il faut l'étendre aux membres et aux autorités indépendantes</td>
+</tr>
+<tr>
+<td>9. Pouvoir des acheteurs</td>
+<td>Rééquilibrer la négociation avec les producteurs</td>
+<td>Partiel</td>
+<td>Mesure et encadre la concentration, mais ne garantit pas un prix qui couvre les coûts</td>
+</tr>
+<tr>
+<td>10. Outre-mer</td>
+<td>Faire baisser les prix</td>
+<td>Partiel</td>
+<td>Risque de censure du plafond ; l'effet sur les prix dépend de l'entrée de nouveaux concurrents</td>
+</tr>
+<tr>
+<td>11. Forêts</td>
+<td>Ne plus financer la destruction de forêts vivantes</td>
+<td>Suffisant</td>
+<td>Le contrôle sur le terrain a un coût</td>
+</tr>
+<tr>
+<td>12. Rente de crise</td>
+<td>Faire contribuer les profits tirés d'une crise</td>
+<td>Partiel</td>
+<td>Distinguer un bénéfice dû à la crise d'une croissance normale reste difficile, et le rendement est incertain</td>
+</tr>
+<tr>
+<td>13. Productions stratégiques</td>
+<td>Garder les productions essentielles</td>
+<td>Partiel</td>
+<td>Protège ce qui existe, sans recréer ce qui est déjà parti</td>
+</tr>
+<tr>
+<td>14. Crises à venir</td>
+<td>Avoir les réserves avant le choc</td>
+<td>Partiel</td>
+<td>Protège contre les crises connues, pas contre l'imprévu ; le coût du stockage doit être tenu dans la durée, y compris les années sans crise</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="sec-19">Modélisation de la trappe à bas salaires</h2>
+<p>Le modèle confirme la trappe et montre qu'un barème national seul ne peut pas à la fois garder le coût du Smic, tenir le budget et supprimer la trappe. Un bonus calculé par entreprise sur la progression cumulée des salaires la neutralise, pour un coût estimé à 4 à 5,5 % des allègements, sur une population d'entreprises simulée et recalée sur les données de l'Insee.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Barème</th>
+<th>Coût employeur de +100 € net à 1 Smic</th>
+<th>à 1,5 Smic</th>
+<th>à 2 Smic</th>
+<th>à 2,5 Smic</th>
+<th>Coût du travail au Smic</th>
+<th>Coût total des allègements</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Actuel (2026)</td>
+<td>257 €</td>
+<td>218 €</td>
+<td>201 €</td>
+<td>191 €</td>
+<td>référence</td>
+<td>référence</td>
+</tr>
+<tr>
+<td>Cloche, à budget constant</td>
+<td>180 €</td>
+<td>85 €</td>
+<td>164 €</td>
+<td>306 €</td>
+<td>+38 %</td>
+<td>identique</td>
+</tr>
+<tr>
+<td>Cloche avec plancher au Smic, à budget constant</td>
+<td>206 €</td>
+<td>175 €</td>
+<td>139 €</td>
+<td>289 €</td>
+<td>+19 %</td>
+<td>identique</td>
+</tr>
+<tr>
+<td>Montant fixe en euros, sans hausse au Smic</td>
+<td>186 €</td>
+<td>186 €</td>
+<td>186 €</td>
+<td>186 €</td>
+<td>inchangé</td>
+<td>environ ×2</td>
+</tr>
+</tbody>
+</table></div>
+<p>Pour comparaison, sans aucun allègement, +100 € net coûtent 186 € à l'employeur à tous les niveaux avec un taux patronal de 45 %, ou 179 € avec 40 %. Le barème actuel crée aussi une marche à 3 Smic, où l'allègement minimal de 2 % disparaît d'un coup : juste en dessous, +100 € net coûtent environ 295 €. Au Smic, les 257 € du modèle dépassent les 242 € du rapport Bozio-Wasmer, calculés sur le barème 2024 : la réduction générale de 2026 baisse plus vite juste au-dessus du Smic.</p>
+<p><strong>Ce que montrent les chiffres.</strong></p>
+<ol>
+<li><strong>La cloche recrée la trappe plus haut.</strong> Là où l'exonération redescend, chaque hausse fait de nouveau perdre de l'avantage : au-delà du sommet, +100 € net coûtent jusqu'à 306 €, plus que les 295 € du pire endroit du barème actuel.</li>
+<li><strong>À budget constant, inverser renchérit le Smic.</strong> L'argent donné aux salaires moyens est retiré au Smic, dont le coût augmente de 19 à 38 %. Les emplois les moins qualifiés seraient les premiers exposés.</li>
+<li><strong>Seul un montant fixe supprime la trappe.</strong> Si l'allègement est le même nombre d'euros quel que soit le salaire, une augmentation ne fait rien perdre. Mais le garder au niveau actuel du Smic pour tous les salariés jusqu'à 3 Smic double à peu près le coût des allègements généraux.</li>
+<li><strong>La prime d'activité garde sa propre trappe.</strong> Pour une personne seule sans enfant au Smic, +100 € net de salaire ne laissent que 61 € de revenu en plus, car la prime baisse d'environ 40 centimes par euro gagné. Vu de l'employeur, donner 100 € de revenu disponible en plus à ce salarié coûte donc environ 420 €, et davantage avec les aides au logement, d'où les 483 € cités dans le registre. Aucun barème d'exonération ne corrige cela.</li>
+</ol>
+<p><strong>Dans la grille testée, aucun barème lissé ne tient les trois contraintes.</strong> Sur 324 combinaisons de paramètres (montée par paliers, plateau, sortie lissée plus ou moins lente), aucune ne ramène le surcoût sous 200 € pour +100 € net sans renchérir le Smic de plus de 5 % ou coûter beaucoup plus cher. Le meilleur compromis renchérit le Smic de 4,5 %, coûte environ 36 % de plus que les allègements actuels, et laisse encore un surcoût de 219 € au pire endroit. Ces seuils sont des choix d'analyse, mais le principe tient : un allègement qui décroît crée forcément un surcoût quelque part, puisque chaque euro d'allègement perdu retombe sur une augmentation.</p>
+<p><strong>Le bonus par entreprise : une piste prometteuse.</strong> On garde le barème actuel, mais l'allègement total de l'entreprise est majoré selon la progression des salaires. Le calcul suppose que l'entreprise augmente tous ses salariés du même pourcentage, chaque année. Coût employeur de +100 € net :</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Majoration par point de progression</th>
+<th>à 1 Smic</th>
+<th>à 1,2 Smic</th>
+<th>à 1,5 Smic</th>
+<th>à 2 Smic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Aucune (barème actuel)</td>
+<td>257 €</td>
+<td>236 €</td>
+<td>218 €</td>
+<td>201 €</td>
+</tr>
+<tr>
+<td>×1</td>
+<td>211 €</td>
+<td>208 €</td>
+<td>202 €</td>
+<td>194 €</td>
+</tr>
+<tr>
+<td>×1,5</td>
+<td>188 €</td>
+<td>193 €</td>
+<td>194 €</td>
+<td>191 €</td>
+</tr>
+<tr>
+<td>×2</td>
+<td>165 €</td>
+<td>179 €</td>
+<td>187 €</td>
+<td>188 €</td>
+</tr>
+</tbody>
+</table></div>
+<p>Avec une majoration de 1,5 à 2, augmenter un salarié coûte à peu près ce qu'il coûterait sans aucun allègement, autour de 186 €, sans hausse du coût du Smic. Ce premier calcul suppose une hausse uniforme et répétée chaque année ; la simulation suivante lève cette hypothèse.</p>
+<p><strong>Simulation sur une population d'entreprises.</strong> Pour aller plus loin, le modèle simule 6 000 entreprises et environ 60 000 salariés sur dix ans. Les entreprises diffèrent par leur taille, leur secteur (faible marge, intermédiaire, qualifié), leur politique salariale (un quart sans hausse réelle, les autres de 1 à 6 % par an, moins dans les secteurs à faible marge) et leur façon d'augmenter (tout le monde, ou seulement une partie des salariés). 15 % des salariés partent chaque année et sont remplacés au salaire d'entrée ; les partants restent comptés dans le calcul à leur dernier salaire.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Variante</th>
+<th>Coût employeur sur dix ans d'une hausse ponctuelle de 100 € net au Smic</th>
+<th>Coût total des allègements</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Barème actuel</td>
+<td>257 €</td>
+<td>référence</td>
+</tr>
+<tr>
+<td>Bonus sur trois ans glissants (×1,75)</td>
+<td>231 €</td>
+<td>+4 à +5 %</td>
+</tr>
+<tr>
+<td>Bonus sur la progression cumulée, plafonnée à 30 % (×1,5)</td>
+<td>188 €</td>
+<td>+7 à +8 %</td>
+</tr>
+<tr>
+<td>Bonus sur la progression cumulée, plafonnée à 30 % (×1,75)</td>
+<td>177 €</td>
+<td>+9 à +11 %</td>
+</tr>
+<tr>
+<td>Bonus sur la progression cumulée, plafonnée à 30 % (×2)</td>
+<td>165 €</td>
+<td>+10 à +11 %</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Ce que montre la simulation.</strong></p>
+<ol>
+<li><strong>Un bonus sur trois ans ne suffit pas.</strong> Une hausse ponctuelle fait perdre de l'allègement pour toujours, alors que le bonus disparaît au bout de trois ans : la trappe n'est réduite que de 257 € à 231 €. Le bonus doit porter sur la progression cumulée.</li>
+<li><strong>La version cumulée neutralise la trappe.</strong> Avec une majoration de 1,5 à 2, une hausse coûte de 165 à 188 €, autour de ce qu'elle coûterait sans allègement. Le surcoût est de 7 à 11 % des allègements, stable d'un tirage à l'autre. Ce premier chiffrage supposait des hausses de salaire assez généreuses ; le recalage plus bas, sur les hausses réellement observées, le ramène à 4 à 5,5 %.</li>
+<li><strong>Augmenter un seul salarié ne dilue pas l'effet</strong>, tant que les salariés concernés ont des allègements comparables : le bonus suit la moyenne des progressions individuelles.</li>
+<li><strong>Si les entreprises réagissent en augmentant d'un point de plus par an</strong>, la masse salariale gagne environ 3 % en dix ans et le surcoût monte à environ 11 %. Les cotisations, la CSG et l'impôt supplémentaires sur ces salaires ne sont pas comptés ici et en compenseraient une partie.</li>
+<li><strong>Le malus rapporte peu et frappe des entreprises fragiles.</strong> Il toucherait 20 à 26 % des entreprises chaque année, pour moitié dans les secteurs à faible marge, et ne rapporterait qu'environ 2 % des allègements.</li>
+</ol>
+<p>Limites : la population est synthétique, calibrée à grands traits sur les salaires réels (la médiane simulée est un peu plus basse que celle de l'Insee) ; les comportements sont supposés, pas observés ; l'effet sur l'emploi n'est pas modélisé. Ces résultats donnent un ordre de grandeur et justifient une expérimentation sur les données réelles de la déclaration sociale nominative.</p>
+<p><strong>Recalage sur les données publiques réelles.</strong> La population simulée a ensuite été recalée sur les chiffres de l'Insee, et les hausses de salaire sur celles réellement observées ces dernières années, proches de zéro à +1,5 % par an au-delà de l'inflation.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Indicateur</th>
+<th>Simulation recalée</th>
+<th>Données réelles (Insee)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Salariés concernés par la hausse du Smic</td>
+<td>15,6 %</td>
+<td>14,6 %</td>
+</tr>
+<tr>
+<td>… dans les entreprises de moins de 10 salariés</td>
+<td>23,6 %</td>
+<td>24,2 %</td>
+</tr>
+<tr>
+<td>… dans les entreprises de 10 salariés ou plus</td>
+<td>12,5 %</td>
+<td>12,4 %</td>
+</tr>
+<tr>
+<td>… dans les secteurs à bas salaires</td>
+<td>28,8 %</td>
+<td>21,5 à 29,7 %</td>
+</tr>
+<tr>
+<td>Salaire médian, en multiple du Smic</td>
+<td>1,57</td>
+<td>1,57</td>
+</tr>
+<tr>
+<td>9e décile, en multiple du Smic</td>
+<td>3,12</td>
+<td>3,10</td>
+</tr>
+</tbody>
+</table></div>
+<p>Avec ce recalage, le coût du bonus baisse nettement, parce que les entreprises augmentent aujourd'hui peu leurs salariés au-delà de l'inflation :</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Majoration</th>
+<th>Coût du bonus, hausses observées</th>
+<th>Coût du bonus, hausses plus fortes (1 à 6 % par an)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>×1,5</td>
+<td>environ 4 % des allègements</td>
+<td>environ 10 %</td>
+</tr>
+<tr>
+<td>×1,75</td>
+<td>environ 5 %</td>
+<td>environ 12 %</td>
+</tr>
+<tr>
+<td>×2</td>
+<td>environ 5,5 %</td>
+<td>environ 14 %</td>
+</tr>
+</tbody>
+</table></div>
+<p>Avec les hausses observées, le bonus coûterait donc environ 3 à 4 Md€ par an, rapporté aux quelque 75 Md€ d'exonérations. Son coût augmente si les entreprises réagissent en augmentant davantage leurs salariés : c'est le but recherché, et une partie revient en cotisations et en impôts. Avec ces hausses faibles, un malus général toucherait près d'une entreprise sur deux, pour moitié dans les secteurs à bas salaires, ce qui confirme qu'il faut le réserver aux cas de compression durable.</p>
+<p>Source du recalage : <a href="https://www.insee.fr/fr/statistiques/8376870" target="_blank" rel="noopener">Insee, Salaire minimum de croissance, juin 2025</a> ; <a href="https://www.insee.fr/fr/statistiques/8657156" target="_blank" rel="noopener">Insee, salaires du privé en 2024</a>.</p>
+<p><strong>Ce qui reste à vérifier, et qui ne peut l'être que par des chercheurs habilités.</strong> Les calculs finaux exigent les salaires individuels de la déclaration sociale nominative, qui ne sont pas publics. Ils sont accessibles, sous forme anonymisée, aux chercheurs habilités par le Comité du secret statistique, via le Centre d'accès sécurisé aux données (CASD). Ce document met sa méthode et ses hypothèses à leur disposition. La vérification se ferait en trois étapes :</p>
+<ol>
+<li><strong>Une équipe déjà habilitée.</strong> Par exemple l'Institut des politiques publiques, dirigé par Antoine Bozio, ou un laboratoire universitaire d'économie du travail, qui travaillent déjà sur ces données.</li>
+<li><strong>Déposer le projet au Comité du secret statistique</strong>, avec l'objectif : mesurer, entreprise par entreprise, la progression des salaires des salariés éligibles aux allègements et calculer ce qu'aurait coûté le bonus.</li>
+<li><strong>Suivre la sensibilisation obligatoire</strong> et obtenir la carte d'accès du CASD, puis travailler sur ses serveurs ; seuls des résultats agrégés peuvent en sortir.</li>
+</ol>
+<p>Ce test répondrait aux trois questions que la simulation ne peut pas trancher : la vraie répartition des hausses de salaire entre entreprises, le coût réel du bonus, et les entreprises qui seraient touchées par un malus.</p>
+<p>Sources : <a href="https://www.insee.fr/fr/statistiques/8376870" target="_blank" rel="noopener">Insee, Salaire minimum de croissance, juin 2025</a> ; <a href="https://www.casd.eu/wp/wp-content/uploads/CASD_Presentation_Enrolement_20250402.pdf" target="_blank" rel="noopener">CASD, présentation de l'enrôlement, avril 2025</a>.</p>
+<p>Hypothèses : Smic 2026 d'environ 1 823 € brut par mois ; salaire net égal à 78 % du brut ; cotisations patronales de 45 % avant allègement ; réduction générale 2026 (coefficient maximal 0,397, extinction à 3 Smic, exposant 1,75) ; répartition des salaires du privé interpolée entre les déciles Insee 2024 en équivalent temps plein, avec un plafond à 6 Smic ; prime d'activité d'une personne seule sans enfant, barème d'avril 2025 appliqué au Smic 2026. Les autres allègements, comme ceux propres aux outre-mer, ne sont pas modélisés. Ce sont des ordres de grandeur, pas une évaluation officielle.</p>
+<p>Sources : <a href="https://www.associatheque.fr/fr/fichiers/actualite/decret-2025-887-20250904-NOR-ECOS2522623D.pdf" target="_blank" rel="noopener">décret n° 2025-887 du 4 septembre 2025 fixant la réduction générale 2026 (texte publié au Journal officiel)</a> ; <a href="https://www.insee.fr/fr/statistiques/8657156" target="_blank" rel="noopener">Insee, salaires du privé en 2024</a> ; <a href="https://www.drees.solidarites-sante.gouv.fr/sites/default/files/2025-12/MS2025%20-%20Fiche%2030%20-%20La%20prime%20d%27activit%C3%A9.pdf" target="_blank" rel="noopener">Drees, fiche prime d'activité 2025</a>.</p>
+<h2 id="sec-20">Chiffrage des autres fiches</h2>
+<p><strong>Fiche 5, caisses communes.</strong> Compenser les exonérations aujourd'hui non compensées rapporte environ 2,7 Md€ par an à la Sécurité sociale, à la charge du budget de l'État. Ce n'est pas un gain net pour les finances publiques : c'est la dépense rendue visible, là où elle est décidée. Le mécanisme laisse de côté la baisse des APL payée par les HLM (1,1 à 1,3 Md€ par an) et les charges imposées à EDF, qui ne sont pas des exonérations.</p>
+<p><strong>Fiche 9, pouvoir des acheteurs.</strong> Avec trois alliances à environ 34 %, 29 % et 24 % des achats, l'indice de concentration (IHH) dépasse 2 570 points, même en supposant le reste du marché totalement éclaté. C'est au-delà du seuil de 1 800 à partir duquel les autorités américaines parlent de marché très concentré, et du niveau de 2 000 au-delà duquel la Commission européenne examine de près les concentrations. Le mécanisme se déclencherait donc immédiatement. Mais il encadre la négociation sans fixer de prix : pour un industriel qui réalise 79 à 94 % de ses ventes avec la grande distribution, le rapport de force reste défavorable.</p>
+<p><strong>Fiche 11, forêts.</strong> Rendre inéligibles les forêts vivantes non sinistrées économise 50 à 80 M€ d'aides au reboisement, et évite une dette carbone estimée entre 0,3 et 1,1 Md€ au prix officiel du carbone. Le rapport coût-bénéfice est donc très favorable : chaque euro d'aide évité épargne environ 4 à 22 euros de carbone relâché, en dette brute, avant ce que la replantation stockera de nouveau sur plusieurs décennies.</p>
+<p><strong>Fiche 12, rente de crise.</strong> Les dispositifs de 2022 ont peu rapporté : environ 100 M€ pour la contribution sur les pétroliers et raffineurs, et quelques centaines de millions d'euros en 2023 pour celle sur les producteurs d'électricité (300 à 626 M€ selon les sources), au lieu d'environ 12 Md€ attendus. Sur l'ensemble de la période de juillet 2022 à fin 2023, la Cour des comptes l'estimait à environ 4,3 Md€. L'écart avec les prévisions vient surtout de prix qui ont baissé plus vite qu'anticipé. Un dispositif fondé sur les bénéfices réels, et non sur une part du chiffre d'affaires ou une prévision de prix, suit la rente là où elle existe vraiment. Son rendement reste impossible à prévoir, car il dépend de la crise ; son objectif est l'équité, pas une recette garantie.</p>
+<p>Sources : <a href="https://www.senat.fr/rap/r25-632-1/r25-632-1-syn.pdf" target="_blank" rel="noopener">Sénat, rapport sur les marges, mai 2026</a> ; <a href="https://www.connaissancedesenergies.org/afp/raffineurs-de-petrole-producteurs-delectricite-taxer-les-rentes-un-slogan-faible-rendement-pour-linstant-240419" target="_blank" rel="noopener">Connaissance des énergies, AFP, 19 avril 2024</a> ; <a href="https://www.assemblee-nationale.fr/dyn/17/amendements/0003/CION_FIN/CF80.pdf" target="_blank" rel="noopener">Assemblée nationale, amendement CF80 sur le rendement de la contribution sur les rentes inframarginales</a> ; <a href="https://www.assemblee-nationale.fr/dyn/17/amendements/1907/AN/1314.pdf" target="_blank" rel="noopener">amendement n° 1314 au PLFSS 2026</a>.</p>
+<h2 id="sec-21">Compléments nécessaires</h2>
+<p>Les failles relevées se corrigent sans changer la logique des fiches. Voici les ajouts qui les rendent suffisantes.</p>
+<ul>
+<li><strong>Fiche 6, trappe à bas salaires.</strong> Tester le bonus par entreprise sur des données réelles de la déclaration sociale nominative, pour mesurer son coût et ses contournements avant de le généraliser. Chiffrer aussi le coût d'une baisse plus lente de la prime d'activité.</li>
+<li><strong>Fiche 4, baisses d'impôts.</strong> Soumettre aussi les niches existantes à l'extinction, par quart chaque année, pour qu'en quatre ans chacune ait été évaluée.</li>
+<li><strong>Fiche 5, caisses communes.</strong> Étendre la compensation obligatoire à toute charge imposée par l'État à une caisse ou à une entreprise publique, et pas seulement aux exonérations.</li>
+<li><strong>Fiche 9, pouvoir des acheteurs.</strong> Ajouter un prix plancher indexé sur les coûts de production réels, calculé par l'observatoire des prix et des marges, pour les filières où un producteur dépend de quelques acheteurs. Pour rester compatible avec le droit européen de la concurrence et l'organisation commune des marchés agricoles, il prendrait la forme d'un indicateur de référence obligatoire dans les contrats plutôt que d'un prix fixé par l'État.</li>
+<li><strong>Fiche 10, outre-mer.</strong> Appuyer le plafond sur un objectif d'intérêt général démontré par les écarts de prix, et sur l'injonction structurelle créée pour les outre-mer en 2012, aujourd'hui réservée aux positions dominantes et jamais utilisée, qu'il faudrait rendre réellement applicable. Le risque de censure diminue si la mesure est proportionnée et justifiée par des chiffres.</li>
+<li><strong>Fiche 13, productions stratégiques.</strong> Compléter la protection par la commande publique : pour les produits de la liste, les achats publics privilégient une production européenne, dans les limites de l'accord de l'OMC sur les marchés publics, par exemple par des critères de sécurité d'approvisionnement. Cela donne un débouché stable à ceux qui relocalisent.</li>
+<li><strong>Fiche 8, institutions de contrôle.</strong> Appliquer le délai de carence à tous les membres, et aux autorités administratives indépendantes.</li>
+<li><strong>Fiche 3, lobbying.</strong> Déclarer aussi le financement des études et rapports transmis aux décideurs.</li>
+<li><strong>Fiche 1, loyauté.</strong> Préciser la protection de l'erreur de bonne foi : une décision prise après avoir consulté et documenté les alertes ne peut pas être sanctionnée, même si elle échoue.</li>
+<li><strong>Fiche 7, indicateurs.</strong> Rendre le tableau de bord obligatoire dans les évaluations de la fiche 4, pour qu'il pèse sur les décisions et pas seulement sur le débat.</li>
+<li><strong>Fiche 12, rente de crise.</strong> Définir par avance, secteur par secteur, ce qui distingue un bénéfice dû au choc de prix d'une croissance normale.</li>
+<li><strong>Fiche 14, crises à venir.</strong> Fixer, domaine par domaine, la taille de chaque réserve et ses seuils de déclenchement à partir des pics des crises passées, les réviser tous les cinq ans, et ajouter les risques qui apparaissent entre-temps.</li>
+</ul>
+<h2 id="sec-22">Ce que ces fiches ne règlent pas encore</h2>
+<p>Ces quatorze fiches corrigent des règles. Elles ne suffisent pas pour plusieurs secteurs où le problème tient à la structure même du marché : quelques acteurs y contrôlent une étape indispensable, face à une multitude de producteurs ou de clients qui n'ont pas d'autre choix. Certains de ces secteurs ont pourtant une fiche : elle corrige ce qu'une règle peut corriger, pas la structure du marché elle-même. L'exemple des outre-mer, plus bas, montre cette différence de périmètre.</p>
+<ul>
+<li><strong>Élevage et viande.</strong> Une poignée de groupes contrôle l'abattage et la transformation. Les prix payés aux éleveurs ne couvrent souvent pas leurs coûts, les exploitations ferment sans repreneur et le cheptel diminue.</li>
+<li><strong>Lait.</strong> Le même schéma se retrouve avec quelques grandes laiteries qui fixent de fait le prix pour des milliers de producteurs.</li>
+<li><strong>Industrie agroalimentaire.</strong> Elle subit le pouvoir des centrales d'achat en aval, et l'impose aux agriculteurs en amont. Chaque maillon reporte la pression sur le plus faible.</li>
+<li><strong>Médicaments.</strong> Production concentrée, souvent hors d'Europe, ruptures répétées : le prix ne reflète plus la valeur d'un produit dont la collectivité ne peut pas se passer.</li>
+<li><strong>Distribution dans les outre-mer.</strong> Quelques groupes tiennent à la fois l'importation, la logistique et la vente. La fiche 10 s'attaque aux effets de cette situation, pas à la situation elle-même.</li>
+<li><strong>Établissements médico-sociaux.</strong> Les financements publics progressent moins vite que les coûts, et la différence est reportée sur les familles et les personnels.</li>
+</ul>
+<p><strong>Pourquoi ils ne sont pas traités ici.</strong> Dans chacun de ces secteurs, la transparence et les conditions posées par les fiches réduisent les abus, mais ne changent pas le rapport de force. Le corriger suppose de toucher à la façon dont le pouvoir de décision est réparti entre ceux qui possèdent, ceux qui produisent et ceux qui dépendent du service. Cela met en jeu le droit de propriété, la liberté d'entreprendre et le droit européen, et demande un cadre d'ensemble plutôt qu'une mesure isolée.</p>
+<p><strong>L'exemple des outre-mer : ce que la fiche 10 corrige, et ce qu'elle laisse.</strong> La fiche 10 traite bien les outre-mer, mais dans le périmètre d'une règle : un plafond de part de marché, la décomposition publique des écarts de prix, une injonction structurelle rendue applicable. Ces outils limitent les abus et rendent les marges visibles. Ils ne changent pas le fait qu'un même groupe importe, stocke, distribue et vend : celui qui tient l'importation et les entrepôts garde la main sur le prix final, même avec un plafond en magasin. Le débat sur ce plafond l'a montré : il a été écarté au nom du droit de propriété, alors qu'il ne touche qu'au dernier maillon. Séparer ces activités ou ouvrir l'accès à la logistique est une autre question, qui relève du cadre d'ensemble. Le même partage vaut pour les autres secteurs : la fiche 9 encadre les négociations dans l'alimentation sans régler la concentration de l'abattage et des laiteries, et les fiches 13 et 14 sécurisent l'approvisionnement en médicaments sans changer la façon dont leur production est organisée.</p>
+<p><strong>Pourquoi ils font partie d'un tout.</strong> Ces secteurs ne sont pas des cas séparés. Le même mécanisme s'y répète : un verrou capte la valeur, la pression descend vers les plus faibles, et la collectivité paie la différence, par l'aide publique, la dette ou la perte d'une production. C'est aussi ce que montre le registre à l'échelle de l'État : des caisses communes qui supportent ce que d'autres ne paient pas. Traiter chaque secteur séparément reviendrait à déplacer le problème. Ces secteurs feront donc l'objet d'un travail d'ensemble, présenté séparément, et les fiches de ce document en sont la première étape.</p>
+</main>
+<script>
+document.querySelectorAll('table').forEach(t=>{const h=[...t.querySelectorAll('thead th')].map(x=>x.textContent.trim());t.querySelectorAll('tbody tr').forEach(r=>[...r.children].forEach((c,i)=>{if(h[i])c.setAttribute('data-label',h[i]);}));});
+</script>
+</body>
+</html>
