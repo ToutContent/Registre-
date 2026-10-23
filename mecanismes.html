@@ -14,7 +14,9 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 "IBM Plex Sans",system-ui,sans-serif}
-nav.top{max-width:1000px;margin:0 auto;padding:16px 16px 0;font-size:14px;display:flex;gap:18px;flex-wrap:wrap}
+nav.top{max-width:1000px;margin:0 auto;padding:16px 16px 0;font-size:14px;display:flex;gap:6px 18px;flex-wrap:wrap}
+nav.top a[aria-current]{color:var(--ink);font-weight:600;text-decoration:none}
+.schema{margin:1.2em 0;overflow-x:auto} .schema svg{width:100%;min-width:640px;height:auto;display:block}
 main{max-width:1000px;margin:12px auto 40px;padding:26px 16px;background:var(--paper);border:1px solid var(--line);border-radius:10px}
 @media(min-width:760px){main{padding:40px 52px}}
 h1,h2,h3{font-family:Archivo,"Arial Narrow",sans-serif;line-height:1.2}
@@ -28,7 +30,7 @@ blockquote{margin:1em 0;padding:12px 16px;border-left:4px solid var(--accent);ba
 blockquote p{margin:.3em 0}
 .toc{background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:14px 18px;margin:18px 0 8px}
 .toc .toch{font-family:Archivo,sans-serif;font-weight:700;margin:0 0 6px}
-.toc ol{margin:0;padding-left:22px;columns:2;column-gap:32px}
+.toc ul{margin:0;padding-left:0;list-style:none;columns:2;column-gap:32px}
 .toc li{margin:0 0 6px;break-inside:avoid}
 .toc a{text-decoration:none}
 .tw{overflow-x:auto;margin:1em 0}
@@ -36,7 +38,7 @@ table{border-collapse:collapse;width:100%;font-size:14.5px}
 th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
 th{background:var(--soft)}
 @media (max-width:700px){
- .toc ol{columns:1}
+ .toc ul{columns:1}
  table,thead,tbody,tr,td{display:block;width:100%}
  thead{display:none}
  table{font-size:15px}
@@ -49,11 +51,11 @@ th{background:var(--soft)}
 </style>
 </head>
 <body>
-<nav class="top"><a href="index.html">← Registre</a><a href="analyse.html">Conclusion d'analyse</a></nav>
+<nav class="top"><a href="index.html">Registre</a><a href="analyse.html">Conclusion d'analyse</a><a href="mecanismes.html" aria-current="page">Mécanismes correctifs</a><a href="perspectives.html">Perspectives</a><a href="raisonnements.html">Raisonnements et méthodes</a></nav>
 <main>
 <h1>Mécanismes correctifs</h1>
 <p class="date">Mise à jour : 23 octobre 2026</p>
-<nav class="toc" aria-label="Sommaire"><p class="toch">Sommaire</p><ol><li><a href="#sec-1">Un travail non partisan, au service de l'intérêt du pays</a></li><li><a href="#sec-2">Fiche 1 — La loyauté des gouvernants</a></li><li><a href="#sec-3">Fiche 2 — Le délit d'initié politique</a></li><li><a href="#sec-4">Fiche 3 — Le lobbying</a></li><li><a href="#sec-5">Fiche 4 — Les baisses d'impôts sans contrepartie</a></li><li><a href="#sec-6">Fiche 5 — Les caisses communes</a></li><li><a href="#sec-7">Fiche 6 — La trappe à bas salaires</a></li><li><a href="#sec-8">Fiche 7 — Les indicateurs choisis par le pouvoir</a></li><li><a href="#sec-9">Fiche 8 — Les institutions de contrôle</a></li><li><a href="#sec-10">Fiche 9 — Le pouvoir des acheteurs dans l'alimentation</a></li><li><a href="#sec-11">Fiche 10 — Les outre-mer</a></li><li><a href="#sec-12">Fiche 11 — Les forêts</a></li><li><a href="#sec-13">Fiche 12 — La rente de crise</a></li><li><a href="#sec-14">Fiche 13 — Les productions stratégiques</a></li><li><a href="#sec-15">Fiche 14 — Les crises à venir : des réserves prêtes avant le choc</a></li><li><a href="#sec-16">Pourquoi les fiches forment un tout</a></li><li><a href="#sec-17">Ce qui peut être fait, et comment</a></li><li><a href="#sec-18">Vérification : les mécanismes suffisent-ils ?</a></li><li><a href="#sec-19">Modélisation de la trappe à bas salaires</a></li><li><a href="#sec-20">Chiffrage des autres fiches</a></li><li><a href="#sec-21">Compléments nécessaires</a></li><li><a href="#sec-22">Ce que ces fiches ne règlent pas encore</a></li></ol></nav>
+<nav class="toc" aria-label="Sommaire"><p class="toch">Sommaire</p><ul><li><a href="#sec-1">Un travail non partisan, au service de l'intérêt du pays</a></li><li><a href="#sec-2">Fiche 1 — La loyauté des gouvernants</a></li><li><a href="#sec-3">Fiche 2 — Le délit d'initié politique</a></li><li><a href="#sec-4">Fiche 3 — Le lobbying</a></li><li><a href="#sec-5">Fiche 4 — Les baisses d'impôts sans contrepartie</a></li><li><a href="#sec-6">Fiche 5 — Les caisses communes</a></li><li><a href="#sec-7">Fiche 6 — La trappe à bas salaires</a></li><li><a href="#sec-8">Fiche 7 — Les indicateurs choisis par le pouvoir</a></li><li><a href="#sec-9">Fiche 8 — Les institutions de contrôle</a></li><li><a href="#sec-10">Fiche 9 — Le pouvoir des acheteurs dans l'alimentation</a></li><li><a href="#sec-11">Fiche 10 — Les outre-mer</a></li><li><a href="#sec-12">Fiche 11 — Les forêts</a></li><li><a href="#sec-13">Fiche 12 — La rente de crise</a></li><li><a href="#sec-14">Fiche 13 — Les productions stratégiques</a></li><li><a href="#sec-15">Fiche 14 — Les crises à venir : des réserves prêtes avant le choc</a></li><li><a href="#sec-16">Pourquoi les fiches forment un tout</a></li><li><a href="#sec-17">Ce qui peut être fait, et comment</a></li><li><a href="#sec-18">Vérification : les mécanismes suffisent-ils ?</a></li><li><a href="#sec-19">Modélisation de la trappe à bas salaires</a></li><li><a href="#sec-20">Chiffrage des autres fiches</a></li><li><a href="#sec-21">Compléments nécessaires</a></li><li><a href="#sec-22">Ce que ces fiches ne règlent pas encore</a></li></ul></nav>
 
 <p>Le registre établit les faits et la conclusion les analyse. Ce document propose des réponses : pour chaque problème démontré, un mécanisme qui s'attaque à sa cause, et non à ses symptômes.</p>
 <p>Chaque fiche suit le même ordre : le problème tel qu'il apparaît dans le registre, le mécanisme proposé, puis pourquoi il fonctionne, en s'appuyant sur ce qui existe déjà en France ou à l'étranger. Aucune de ces réponses ne vise une personne. Elles visent des règles, pour qu'elles s'appliquent à tout gouvernement, quel que soit son camp.</p>
@@ -168,6 +170,8 @@ th{background:var(--soft)}
 </ol>
 <p><strong>Pourquoi ça marche.</strong> Le problème n'est pas l'aide elle-même, mais un barème qui pénalise chaque augmentation. Le rapport Bozio-Wasmer fait le même constat, et la réduction générale de 2026 en reprend une partie. La modélisation montre qu'un barème national seul ne peut pas à la fois garder le coût du Smic, tenir le budget et supprimer la trappe : l'allègement doit diminuer quelque part, et la trappe se loge là où il diminue. Le bonus contourne cette contrainte en regardant la trajectoire de l'entreprise plutôt qu'un salaire isolé. Calculé sur la progression cumulée, il compense durablement chaque hausse, au lieu de s'éteindre au bout de quelques années. Les données existent déjà, puisque la déclaration sociale nominative transmet chaque mois le salaire et les heures de chaque salarié. Le dispositif reste à tester sur des données réelles d'entreprises avant d'être généralisé.</p>
 <p>Sources : <a href="https://www.strategie.gouv.fr/publications/mission-bozio-wasmer-politiques-dexonerations-de-cotisations-sociales-une-inflexion" target="_blank" rel="noopener">rapport Bozio-Wasmer, « Les politiques d'exonérations de cotisations sociales : une inflexion nécessaire », octobre 2024</a> ; <a href="https://www.assemblee-nationale.fr/dyn/17/amendements/0622/CION-SOC/AS102.pdf" target="_blank" rel="noopener">Assemblée nationale, amendement AS102, qui reprend l'estimation d'emplois du rapport</a>.</p>
+<p><strong>Ce que le bonus rapporte en retour.</strong> Les 3 à 4 Md€ par an sont un coût brut, calculé avec les hausses de salaire d'aujourd'hui. Si les entreprises ne changent rien, le bonus récompense des hausses qui auraient eu lieu de toute façon, et ne rapporte rien en retour. Le retour vient des hausses supplémentaires qu'il déclenche. Avec le bonus, une hausse de 100 € net au Smic coûte environ 186 € à l'employeur : 100 € vont au salarié et 86 € aux organismes sociaux, sous forme de cotisations et de contributions. Si le salarié touche la prime d'activité, celle-ci baisse en plus d'environ 39 € pour une personne seule. Chaque euro de hausse nette supplémentaire rapporte donc entre 0,86 € et 1,25 € aux finances publiques, selon que le salarié touche ou non la prime. Le bonus s'autofinance si les hausses qu'il déclenche atteignent environ 3 à 4 Md€ nets par an. Pour comparaison, la prime d'activité coûte environ 10 Md€ par an : 4,5 millions de foyers, 191 € par mois en moyenne. Elle ne disparaîtrait pas, car elle dépend aussi de la situation familiale et du temps de travail, mais elle diminuerait à mesure que les salaires remontent. Ce retour est un ordre de grandeur : il est plus faible pour les couples et les temps partiels, une partie des cotisations ouvre des droits futurs (retraite, chômage), et seule l'expérimentation dira combien de hausses le bonus déclenche vraiment.</p>
+<p>Sources : <a href="https://www.moneyvox.fr/votre-argent/actualites/107158/petit-salaire-quelle-est-la-prime-moyenne-versee-aux-beneficiaires-de-la-caf" target="_blank" rel="noopener">Moneyvox, chiffres de la Caf sur la prime d'activité (décembre 2025)</a> ; modélisation de la trappe à bas salaires, plus bas dans ce document.</p>
 <p><strong>Faisabilité.</strong> Faisable : les allègements relèvent de la loi de financement de la Sécurité sociale, la prime d'activité de la loi de finances et de décrets. Une expérimentation sur un échantillon d'entreprises permettrait de mesurer le coût réel du bonus avant de le généraliser.</p>
 <p><strong>Liens avec les autres fiches.</strong> Le bonus coûte 3 à 4 Md€ par an : il est financé par les économies de la fiche 4, sinon il creuse la dette. Il doit être compensé à la Sécurité sociale (fiche 5), sinon ce sont les caisses communes qui le paient. La publication de la prime d'activité par secteur s'ajoute au tableau d'indicateurs (fiche 7).</p>
 <h2 id="sec-8">Fiche 7 — Les indicateurs choisis par le pouvoir</h2>
